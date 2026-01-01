@@ -74,25 +74,24 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   ```
 
 **Workflow**
+1. Create Project  
+   - File → New Project  
 
-1. Create Project
-  - File → New Project
+2. Configure Project  
+   - Project Name  
+   - UID Root (affects generated DICOM UIDs)  
+   - Storage Directory (output path)  
+   - Modalities (CR, DX, CT, MR, etc.)  
 
-2. Configure Project
-  - Project Name
-  - UID Root (affects generated DICOM UIDs)
-  - Storage Directory (output path)
-  - Modalities (CR, DX, CT, MR, etc.)
+3. Select Script File  
+   - Low-level anonymization (**anonymizer_low_level.script**)  
+   - High-level anonymization (**anonymizer_high_level.script**)  
 
-3. Select Script File
-  - Low-level anonymization (**anonymizer_low_level.script**)
-  - High-level anonymization (**anonymizer_high_level.script**)
+4. Import DICOM Files  
+   - Import Files or Import Directory  
 
-4. Import DICOM Files
-  - Import Files or Import Directory
-
-5. Run Anonymization
-  - Progress and logs shown in GUI
+5. Run Anonymization  
+   - Progress and logs shown in GUI  
 
 
 #### 2. Facial information anonymization 
