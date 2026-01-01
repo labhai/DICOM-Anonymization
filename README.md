@@ -169,12 +169,12 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
     --option high
   ```
 
-- save results (default: dicom_header_verification.xlsx)
+- change output filename (default: dicom_header_verification.xlsx)
   ```
   python dicom_header_verifier.py \
     --input /path/to/dicom \
     --option low \
-    --output result.xlsx
+    --output /path/to/results/results.xlsx
   ```
 
 #### 2. Facial defacing verification 
@@ -207,13 +207,13 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
     --gpu 2
   ```
 
-- Sepcific subjects & output:
+- Sepcific subjects & chage output filename (default: dicom_deface_verification.xlsx):
   ```
   python dicom_deface_verifier.py \
     --defaced /path/to/defaced \
     --raw /path/to/raw \
     --subjects sub001 sub002 \
-    --output /path/to/results/dicom_deface_verification.xlsx
+    --output /path/to/results/results.xlsx
   ```
 
 ## Example & Test Dataset (Demo Data)
