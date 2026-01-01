@@ -33,7 +33,7 @@ Excel-based verification reports
 Deep-learning-based verification (nnUNet)
 GPU selection supported
 
-### Repository Sturcture
+### Repository Structure
 ```
 ├── anonymization transformation
 │   ├── anonymizer_high_level.script        # Header anonymization (high-level)
