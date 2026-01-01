@@ -5,7 +5,8 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ## Features
 
-### Anonymization (`anonymization transformation`)
+### Anonymization 
+(`anonymization transformation`)
 #### 1. Header Anonymization (RSNA DICOM Anonymizer)
 
 Script-based anonymization using RSNA DICOM Anonymizer
@@ -19,7 +20,8 @@ GUI-based workflow (Windows)
 Automated 3D facial defacing for head-related DICOM images
 Conda-based reproducible environment
 
-### Validation (`anonymization validation`)
+### Validation 
+(`anonymization validation`)
 
 #### 1. Header anonymization verification (dicom_header_verifier.py)
 
