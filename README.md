@@ -48,7 +48,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ## Installation and Usage
 
-### Anonymizer
+### Anonymization
 
 #### 1. Header anonymization (RSNA DICOM Anonymizer) 
 
@@ -127,7 +127,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
     --subjects sub001 sub002
   ```
 
-### Verifier
+### Validation
 
 #### 1. Header anonymization verification
 
