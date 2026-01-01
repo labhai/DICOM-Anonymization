@@ -45,17 +45,6 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 │   └── dicom_deface_verifier.sh             # Facial verifier environment setup
 
 ```
-  
-## Requirements Overview
-
-| Component            | OS           | Key Dependencies                   |
-| -------------------- | ------------ | ---------------------------------- |
-| Header Anonymization | Windows      | Python 3.12, RSNA DICOM Anonymizer |
-| Facial Anonymization | Ubuntu 22.04 | Conda, FaceOff, ANTs               |
-| Header Verification  | Ubuntu 22.04 | Python ≥ 3.8                       |
-| Facial Verification  | Ubuntu 22.04 | Conda, CUDA, nnUNet                |
-
-
 
 ## Installation and Usage
 
