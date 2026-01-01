@@ -24,7 +24,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 - Low / High-level criteria support
 - Excel-based verification reports
 
-#### 2. Facial defacing verification (dicom_deface_verifier)
+#### 2. Facial defacing verification (dicom_deface_verifier.py)
 - Deep-learning-based verification (nnUNet)
 - Conda-based environment
 - Reference: Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
