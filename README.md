@@ -70,41 +70,41 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 - GUI support required (```tkinter```)
 
 - Verify Python installation:
-```
-python --version
-python -m tkinter
-```
+  ```
+  python --version
+  python -m tkinter
+  ```
 
 **Installation**
-```
-pip install rsna-anonymizer
-```
+  ```
+  pip install rsna-anonymizer
+  ```
 
 **Usage**
-```
-rsna-anonymizer
-```
+  ```
+  rsna-anonymizer
+  ```
 
 **Workflow**
 
 1. Create Project
-- File → New Project
+  - File → New Project
 
 2. Configure Project
-- Project Name
-- UID Root (affects generated DICOM UIDs)
-- Storage Directory (output path)
-- Modalities (CR, DX, CT, MR, etc.)
+  - Project Name
+  - UID Root (affects generated DICOM UIDs)
+  - Storage Directory (output path)
+  - Modalities (CR, DX, CT, MR, etc.)
 
 3. Select Script File
-- Low-level anonymization (**anonymizer_low_level.script**)
-- High-level anonymization (**anonymizer_high_level.script**)
+  - Low-level anonymization (**anonymizer_low_level.script**)
+  - High-level anonymization (**anonymizer_high_level.script**)
 
 4. Import DICOM Files
-- Import Files or Import Directory
+  - Import Files or Import Directory
 
 5. Run Anonymization
-- Progress and logs shown in GU
+  - Progress and logs shown in GU
 
 
 #### 2. Facial Information Anonymization (dicom_deface_anonymizer.py)
@@ -114,30 +114,30 @@ rsna-anonymizer
 - Conda required
 
 **Installation**
-```
-git clone https://github.com/labhai/DICOM-Anonymization
-cd dicom_anonymizer
-bash anonymization\ transformation/dicom_deface_anonymizer.sh
-```
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_anonymizer
+  bash anonymization\ transformation/dicom_deface_anonymizer.sh
+  ```
 - Verify installation:
-```
-faceoff -h 2>/dev/null
-```
+  ```
+  faceoff -h 2>/dev/null
+  ```
 
 **Usage**
-```
-python dicom_deface_anonymizer.py \
-  --input /path/to/root \
-  --output /path/to/output
-```
+  ```
+  python dicom_deface_anonymizer.py \
+    --input /path/to/root \
+    --output /path/to/output
+  ```
 
 - Specific subjects only:
-```
-python dicom_deface_anonymizer.py \
-  --input /path/to/root \
-  --output /path/to/output \
-  --subjects sub001 sub002
-```
+  ```
+  python dicom_deface_anonymizer.py \
+    --input /path/to/root \
+    --output /path/to/output \
+    --subjects sub001 sub002
+  ```
 
 ### Verifier
 
@@ -148,34 +148,34 @@ python dicom_deface_anonymizer.py \
 - Python >= 3.8
 
 **Installation**
-```
-git clone https://github.com/labhai/DICOM-Anonymization
-cd dicom_verifier
-chmod +x dicom_header_verifier.sh
-bash dicom_header_verifier.sh
-```
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_verifier
+  chmod +x dicom_header_verifier.sh
+  bash dicom_header_verifier.sh
+  ```
 
 **Usage**
 - Basic verification:
-```
-python dicom_header_verifier.py \
-  --input /path/to/dicom
-```
+  ```
+  python dicom_header_verifier.py \
+    --input /path/to/dicom
+  ```
 
 - Specify anonymization level (low/high)
-```
-python dicom_header_verifier.py \
-  --input /path/to/dicom \
-  --option high
-```
+  ```
+  python dicom_header_verifier.py \
+    --input /path/to/dicom \
+    --option high
+  ```
 
 - save results (default: dicom_header_verification.xlsx)
-```
-python dicom_header_verifier.py \
-  --input /path/to/dicom \
-  --option low \
-  --output result.xlsx
-```
+  ```
+  python dicom_header_verifier.py \
+    --input /path/to/dicom \
+    --option low \
+    --output result.xlsx
+  ```
 
 #### 2. Facial defacing verification 
 
@@ -185,36 +185,36 @@ python dicom_header_verifier.py \
 
 
 **Installation**
-```
-git clone https://github.com/labhai/DICOM-Anonymization
-cd dicom_verifier
-bash anonymization\ validation/dicom_deface_verifier.sh
-```
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_verifier
+  bash anonymization\ validation/dicom_deface_verifier.sh
+  ```
 
 **Usage**
 - Basic verification:
-```
-python dicom_deface_verifier.py \
-  --defaced /path/to/defaced \
-  --raw /path/to/raw
-```
+  ```
+  python dicom_deface_verifier.py \
+    --defaced /path/to/defaced \
+    --raw /path/to/raw
+  ```
 
 - Specify GPU (default: GPU 0):
-```
-python dicom_deface_verifier.py \
-  --defaced /path/to/defaced \
-  --raw /path/to/raw \
-  --gpu 2
-```
+  ```
+  python dicom_deface_verifier.py \
+    --defaced /path/to/defaced \
+    --raw /path/to/raw \
+    --gpu 2
+  ```
 
 - Sepcific subjects & output:
-```
-python dicom_deface_verifier.py \
-  --defaced /path/to/defaced \
-  --raw /path/to/raw \
-  --subjects sub001 sub002 \
-  --output /path/to/results/dicom_deface_verification.xlsx
-```
+  ```
+  python dicom_deface_verifier.py \
+    --defaced /path/to/defaced \
+    --raw /path/to/raw \
+    --subjects sub001 sub002 \
+    --output /path/to/results/dicom_deface_verification.xlsx
+  ```
 
 ## Example & Test Dataset (Demo Data)
 
