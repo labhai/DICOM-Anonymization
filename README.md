@@ -107,7 +107,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   - Progress and logs shown in GU
 
 
-#### 2. Facial Information Anonymization (dicom_deface_anonymizer.py)
+#### 2. Facial Information Anonymization 
 
 **Environment**
 - OS: Ubuntu 22.04
