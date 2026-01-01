@@ -1,12 +1,12 @@
 
 # DICOM Anonymization
 
-This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with  verification tools to ensure anonymization integrity.
+This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
 
 ## Features
 
 ### Anonymization (`anonymization transformation`)
-#### 1. Header Anonymization (RSNA DICOM Anonymizer)
+#### 1. Header anonymization (RSNA DICOM Anonymizer)
 
 - Script-based anonymization using RSNA DICOM Anonymizer
 - Two anonymization levels:
@@ -14,7 +14,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   - High-level: anonymizer_high_level.script
 - GUI-based workflow (Windows)
 
-#### 2. Facial Information Anonymization (dicom_deface_anonymizer.py)
+#### 2. Facial information anonymization (dicom_deface_anonymizer.py)
 - Automated 3D facial defacing for head-related DICOM images
 - Conda-based environment
 
@@ -27,7 +27,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 #### 2. Facial defacing verification (dicom_deface_verifier)
 - Deep-learning-based verification (nnUNet)
 - Conda-based environment
-- Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
+- Reference: Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
 
 
 ### Repository Structure
@@ -61,7 +61,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ### Anonymizer
 
-#### 1. Header Anonymization (RSNA DICOM Anonymizer) 
+#### 1. Header anonymization (RSNA DICOM Anonymizer) 
 
 **Environment**
 - OS: Windows
@@ -103,10 +103,10 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   - Import Files or Import Directory
 
 5. Run Anonymization
-  - Progress and logs shown in GU
+  - Progress and logs shown in GUI
 
 
-#### 2. Facial Information Anonymization 
+#### 2. Facial information anonymization 
 
 **Environment**
 - OS: Ubuntu 22.04
@@ -206,7 +206,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
     --gpu 2
   ```
 
-- Sepcific subjects & chage output filename (default: dicom_deface_verification.xlsx):
+- Specific subjects & change output filename (default: dicom_deface_verification.xlsx):
   ```
   python dicom_deface_verifier.py \
     --defaced /path/to/defaced \
