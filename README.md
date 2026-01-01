@@ -1,7 +1,7 @@
 
 # DICOM Anonymization
 
-This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with post-hoc verification tools to ensure anonymization integrity.
+This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with  verification tools to ensure anonymization integrity.
 
 ## Features
 
