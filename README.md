@@ -112,6 +112,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   ```
 
 **Usage**
+Basic anonymization:
   ```
   python dicom_deface_anonymizer.py \
     --input /path/to/root \
