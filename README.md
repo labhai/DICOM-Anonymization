@@ -5,20 +5,20 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ## Features
 
-### Anonymization (`anonymization transformation`)
+### Anonymization (`dicom_anonymizer`)
 #### 1. Header anonymization (RSNA DICOM Anonymizer)
 
 - Script-based anonymization using RSNA DICOM Anonymizer
 - Two anonymization levels:
-  - Low-level: anonymizer_low_level.script
-  - High-level: anonymizer_high_level.script
+  - Low-level: dicom_header_anonymizer_low_level.script
+  - High-level: dicom_header_anonymizer_high_level.script
 - GUI-based workflow (Windows)
 
 #### 2. Facial information anonymization (dicom_deface_anonymizer.py)
 - Automated 3D facial defacing for head-related DICOM images
 - Conda-based environment
 
-### Validation (`anonymization validation`)
+### Validation (`dicom_verifier`)
 
 #### 1. Header anonymization verification (dicom_header_verifier.py)
 - Low / High-level criteria support
@@ -33,8 +33,8 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 ### Repository Structure
 ```
 ├── dicom_anonymizer
-│   ├── anonymizer_high_level.script        # Header anonymization (high-level)
-│   ├── anonymizer_low_level.script         # Header anonymization (low-level)
+│   ├── dicom_header_anonymizer_high_level.script        # Header anonymization (high-level)
+│   ├── dicom_header_anonymizer_low_level.script         # Header anonymization (low-level)
 │   ├── dicom_deface_anonymizer.py          # Facial anonymization
 │   └── dicom_deface_anonymizer.sh          # Facial anonymization environment setup
 │
@@ -55,7 +55,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 **Environment**
 - OS: Windows
 - Python: 3.12 (recommended)
-- GUI support required (```tkinter```)
+- GUI support required
 
 - Verify Python installation:
   ```
@@ -84,8 +84,8 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
    - Modalities (CR, DX, CT, MR, etc.)  
 
 3. Select Script File  
-   - Low-level anonymization (**anonymizer_low_level.script**)  
-   - High-level anonymization (**anonymizer_high_level.script**)  
+   - Low-level anonymization (**dicom_header_anonymizer_low_level.script**)  
+   - High-level anonymization (**dicom_header_anonymizer_high_level.script**)  
 
 4. Import DICOM Files  
    - Import Files or Import Directory  
