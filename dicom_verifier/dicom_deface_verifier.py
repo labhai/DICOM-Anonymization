@@ -1,6 +1,4 @@
 """
-Defacing 검증 스크립트
-
 사용법:
     python dicom_deface_verifier.py --defaced /path/to/defaced --raw /path/to/raw
 
@@ -35,7 +33,6 @@ warnings.filterwarnings('ignore')
 
 
 class DefacingVerifier:
-    # 검증 기준치
     TARGETS = {
         'surface_dsc': 0.80,
         'hd95_mm': 30.00,
@@ -52,20 +49,17 @@ class DefacingVerifier:
         self.temp_dir = None
     
     def setup_environment(self):
-        """환경 변수 설정"""
         home_dir = os.path.expanduser("~")
         os.environ['nnUNet_raw'] = f"{home_dir}/nnUNet_raw"
         os.environ['nnUNet_preprocessed'] = f"{home_dir}/nnUNet_preprocessed"
         os.environ['nnUNet_results'] = f"{home_dir}/nnUNet"
         os.environ['nnUNet_n_proc_DA'] = "12"
         
-        # GPU 지정
         os.environ['CUDA_VISIBLE_DEVICES'] = str(self.gpu_id)
         print(f"GPU {self.gpu_id} 사용 설정 완료")
     
     @staticmethod
     def _is_dicom_file(file_path: Path) -> bool:
-        """DICOM 파일 확인"""
         if not file_path.is_file():
             return False
         
@@ -80,7 +74,6 @@ class DefacingVerifier:
             return False
     
     def dcm2nii(self, dicom_dir: Path, output_dir: Path) -> Optional[Path]:
-        """DICOM을 NIfTI로 변환"""
         output_dir.mkdir(parents=True, exist_ok=True)
         
         cmd = [
@@ -104,13 +97,11 @@ class DefacingVerifier:
             return None
     
     def find_raw_dicom_for_subject(self, subject_name: str, raw_root: Path) -> Optional[Path]:
-        """Subject 이름으로 원본 DICOM 디렉토리 찾기"""
         subject_dir = raw_root / subject_name
         
         if not subject_dir.exists():
             return None
         
-        # DICOM 파일이 있는 첫 번째 디렉토리 찾기
         for dirpath, _, filenames in os.walk(subject_dir):
             current_dir = Path(dirpath)
             dicom_count = sum(1 for f in filenames if self._is_dicom_file(current_dir / f))
@@ -121,7 +112,6 @@ class DefacingVerifier:
         return None
     
     def _prepare_single_input(self, img_path: Path, subdir_name: str) -> str:
-        """nnUNet 입력 준비"""
         in_dir = Path(self.temp_dir) / subdir_name
         in_dir.mkdir(exist_ok=True)
         target = in_dir / "case001_0000.nii.gz"
@@ -129,7 +119,6 @@ class DefacingVerifier:
         return str(in_dir)
     
     def _find_model_root(self, model_name: str) -> Path:
-        """모델 루트 디렉토리 찾기"""
         base_path = Path(os.environ['nnUNet_results']) / model_name
         
         if not base_path.exists():
@@ -152,12 +141,10 @@ class DefacingVerifier:
         return candidate
     
     def _run_nnunet_predict(self, input_dir: str, output_dir: str, model_name: str) -> str:
-        """nnUNet 예측 실행"""
         model_root = self._find_model_root(model_name)
         out_dir = Path(self.temp_dir) / output_dir
         out_dir.mkdir(exist_ok=True)
         
-        # fold_all 또는 fold_* 확인
         fold_all = model_root / "fold_all"
         
         if fold_all.exists():
@@ -197,12 +184,10 @@ class DefacingVerifier:
     
     @staticmethod
     def load_nifti_data(path: Path) -> Tuple[np.ndarray, np.ndarray, any]:
-        """NIfTI 데이터 로드"""
         nii = nib.load(path)
         return nii.get_fdata(), nii.affine, nii.header
     
     def load_binary_mask_to_ref(self, mask_path: Path, ref_img_path: Path) -> np.ndarray:
-        """마스크를 참조 이미지에 맞게 리샘플"""
         ref_nii = nib.load(ref_img_path)
         m_nii = nib.load(mask_path)
         
@@ -213,7 +198,6 @@ class DefacingVerifier:
         return (m > 0.5).astype(np.uint8)
     
     def get_foreground_mask(self, defaced_path: Path) -> np.ndarray:
-        """전경 마스크 생성 (Dataset803 사용)"""
         try:
             in_dir = self._prepare_single_input(defaced_path, "fg_input")
             pred_path = self._run_nnunet_predict(in_dir, "fg_pred", "Dataset803_anatomical_foreground_v2")
@@ -239,7 +223,6 @@ class DefacingVerifier:
     @staticmethod
     def clip_to_roi(mask: np.ndarray, anchor_mask: np.ndarray, 
                     spacing: tuple, margin_mm: float = 30.0) -> np.ndarray:
-        """ROI로 클리핑"""
         iters = tuple(max(1, int(np.ceil(margin_mm / s))) for s in spacing)
         s = ndimage.generate_binary_structure(3, 1)
         roi = ndimage.binary_dilation(anchor_mask.astype(bool), structure=s, 
@@ -248,7 +231,6 @@ class DefacingVerifier:
     
     @staticmethod
     def calculate_dsc(a: np.ndarray, b: np.ndarray) -> float:
-        """Dice Similarity Coefficient"""
         a = (a > 0).astype(np.float32)
         b = (b > 0).astype(np.float32)
         inter = np.sum(a * b)
@@ -260,7 +242,6 @@ class DefacingVerifier:
     @staticmethod
     def surface_dsc(a: np.ndarray, b: np.ndarray, spacing: tuple, 
                    tol_mm: float = 5.0) -> float:
-        """Surface Dice"""
         s = ndimage.generate_binary_structure(3, 1)
         a = a.astype(bool)
         b = b.astype(bool)
@@ -286,7 +267,6 @@ class DefacingVerifier:
     
     @staticmethod
     def hd95_dt(a: np.ndarray, b: np.ndarray, spacing: tuple) -> float:
-        """95th percentile Hausdorff Distance"""
         a = a.astype(bool)
         b = b.astype(bool)
         
@@ -312,7 +292,6 @@ class DefacingVerifier:
     
     def _global_rescale(self, raw_img: np.ndarray, defaced_img: np.ndarray, 
                        fg_mask: np.ndarray) -> Tuple[np.ndarray, np.ndarray, float]:
-        """전역 스케일링"""
         fg = (fg_mask > 0)
         vals = raw_img[fg]
         
@@ -336,7 +315,6 @@ class DefacingVerifier:
     @staticmethod
     def calculate_ssim_masked(img1: np.ndarray, img2: np.ndarray, 
                              mask: np.ndarray) -> float:
-        """마스크 영역에서 SSIM 계산"""
         vals = []
         for z in range(img1.shape[2]):
             m = mask[:, :, z].astype(bool)
@@ -368,7 +346,6 @@ class DefacingVerifier:
     @staticmethod
     def calculate_psnr_masked(img1: np.ndarray, img2: np.ndarray, 
                              mask: np.ndarray, peak: float = 1.0) -> float:
-        """마스크 영역에서 PSNR 계산"""
         m = (mask > 0)
         if not np.any(m):
             return float('inf')
@@ -383,12 +360,10 @@ class DefacingVerifier:
     
     def verify_subject(self, subject_name: str, defaced_root: Path, 
                       raw_root: Path) -> Optional[Dict]:
-        """단일 subject 검증"""
         print(f"\n{'='*70}")
         print(f"Subject: {subject_name}")
         print(f"{'='*70}")
         
-        # Defaced 파일 찾기
         subject_defaced_dir = defaced_root / subject_name
         defaced_nii = subject_defaced_dir / "defaced.nii.gz"
         defaced_mask = subject_defaced_dir / "defaced_mask.nii.gz"
@@ -403,7 +378,6 @@ class DefacingVerifier:
         
         print(f"  ✓ Defaced 파일 확인")
         
-        # 원본 DICOM 찾기
         raw_dicom_dir = self.find_raw_dicom_for_subject(subject_name, raw_root)
         
         if not raw_dicom_dir:
@@ -412,11 +386,9 @@ class DefacingVerifier:
         
         print(f"  ✓ 원본 DICOM 발견: {raw_dicom_dir.relative_to(raw_root)}")
         
-        # 임시 디렉토리 생성
         self.temp_dir = tempfile.mkdtemp(prefix=f'verify_{subject_name}_')
         
         try:
-            # DICOM → NIfTI 변환
             print(f"  [1/4] DICOM → NIfTI 변환")
             temp_nii_dir = Path(self.temp_dir) / "raw_nii"
             raw_nii = self.dcm2nii(raw_dicom_dir, temp_nii_dir)
@@ -427,7 +399,6 @@ class DefacingVerifier:
             
             print(f"  ✓ 변환 완료")
             
-            # nnUNet 예측 (Dataset804)
             print(f"  [2/4] 제거 영역 예측 (Dataset804)")
             def_in_dir = self._prepare_single_input(defaced_nii, "defaced_input")
             pred804_path = self._run_nnunet_predict(def_in_dir, "pred804", 
@@ -436,7 +407,6 @@ class DefacingVerifier:
             PRED_REMOVE = (pred_remove > 0).astype(np.uint8)
             print(f"  ✓ 예측 완료")
             
-            # 전경 및 마스크 로드
             print(f"  [3/4] 전경 및 ROI 계산")
             defaced_img, _, def_hdr = self.load_nifti_data(defaced_nii)
             spacing = def_hdr.get_zooms()[:3]
@@ -444,43 +414,34 @@ class DefacingVerifier:
             FG = self.get_foreground_mask(defaced_nii)
             KEEP = self.load_binary_mask_to_ref(defaced_mask, defaced_nii)
             
-            # TOOL_REMOVE: keep==0 & FG
             TOOL_REMOVE = ((KEEP == 0) & (FG == 1)).astype(np.uint8)
             
-            # ROI 계산
             union_anchor = ((PRED_REMOVE == 1) | (TOOL_REMOVE == 1)).astype(np.uint8)
             ROI = self.clip_to_roi(np.ones_like(union_anchor), union_anchor, 
                                    spacing, margin_mm=self.ROI_MARGIN_MM)
             
-            # 클리핑
             PRED_CLIP = ((PRED_REMOVE == 1) & (ROI == 1) & (FG == 1)).astype(np.uint8)
             TOOL_CLIP = ((TOOL_REMOVE == 1) & (ROI == 1) & (FG == 1)).astype(np.uint8)
             
             print(f"  ✓ ROI 계산 완료")
             
-            # 지표 계산
             print(f"  [4/4] 검증 지표 계산")
             raw_img, _, _ = self.load_nifti_data(raw_nii)
             raw_s, def_s, peak = self._global_rescale(raw_img, defaced_img, FG)
             
-            # Surface DSC & HD95
             dsc_surf = self.surface_dsc(PRED_CLIP, TOOL_CLIP, spacing, 
                                        tol_mm=self.SURFACE_TOL_MM)
             hd95 = self.hd95_dt(PRED_CLIP, TOOL_CLIP, spacing)
             
-            # 제거/보존 영역
             def_region = TOOL_CLIP
             
-            # SSIM & PSNR
             ssim_def = self.calculate_ssim_masked(raw_s, def_s, def_region)
             psnr_def = self.calculate_psnr_masked(raw_s, def_s, def_region, peak)
             
-            # 검증 통과 여부
             passed = self._check_pass(dsc_surf, hd95, ssim_def, psnr_def)
             
             print(f"  ✓ 검증 지표 계산 완료")
             
-            # 결과 출력
             self._print_result(dsc_surf, hd95, ssim_def, psnr_def, passed)
             
             results = {
@@ -501,13 +462,11 @@ class DefacingVerifier:
             return None
             
         finally:
-            # 임시 파일 정리
             if self.temp_dir and os.path.exists(self.temp_dir):
                 shutil.rmtree(self.temp_dir, ignore_errors=True)
                 self.temp_dir = None
     
     def _check_pass(self, dsc: float, hd95: float, ssim: float, psnr: float) -> bool:
-        """전체 검증 통과 여부 확인"""
         return (dsc >= self.TARGETS['surface_dsc'] and 
                 hd95 <= self.TARGETS['hd95_mm'] and 
                 ssim <= self.TARGETS['ssim_def'] and 
@@ -515,7 +474,6 @@ class DefacingVerifier:
     
     def _print_result(self, dsc: float, hd95: float, ssim_def: float, 
                      psnr_def: float, passed: bool):
-        """검증 결과 출력"""
         print(f"\n  검증 지표:")
         print(f"    Surface DSC (@{self.SURFACE_TOL_MM}mm): {dsc:.4f}")
         print(f"    HD95 (mm):                   {hd95:.2f}")
@@ -536,10 +494,8 @@ class DefacingVerifier:
 
 
 def save_results_to_excel(results: List[Dict], output_path: Path):
-    """검증 결과를 Excel 파일로 저장"""
     workbook = xlsxwriter.Workbook(str(output_path))
     
-    # 포맷 정의
     bold_format = workbook.add_format({'bold': True})
     pass_format = workbook.add_format({'font_color': 'green'})
     fail_format = workbook.add_format({'font_color': 'red'})
@@ -548,15 +504,12 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
     header_format = workbook.add_format({'bold': True, 'bg_color': '#D3D3D3'})
     criteria_format = workbook.add_format({'bold': True})
     
-    # 시트 생성
     worksheet = workbook.add_worksheet('의료영상 얼굴 정보 익명화 검증 결과')
     
-    # 컬럼 너비 설정
-    worksheet.set_column('A:A', 15)  # Subject
-    worksheet.set_column('B:B', 12)  # 최종결과
-    worksheet.set_column('C:L', 15)  # 나머지
+    worksheet.set_column('A:A', 15)
+    worksheet.set_column('B:B', 12)
+    worksheet.set_column('C:L', 15)
     
-    # 검증 기준 헤더
     row = 0
     worksheet.write(row, 0, '검증 기준', criteria_format)
     row += 1
@@ -579,7 +532,6 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
     worksheet.write(row, 1, targets['psnr_def_db'])
     row += 2
     
-    # 데이터 헤더
     headers = [
         'SUBJECT 명', '최종결과', 
         'DSC(mm)', 'DSC 만족 유무',
@@ -592,15 +544,12 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
         worksheet.write(row, col, header, header_format)
     row += 1
     
-    # 데이터 작성
     for result in results:
         col = 0
         
-        # Subject 명
         worksheet.write(row, col, result['subject'])
         col += 1
         
-        # 최종결과 (Bold 적용)
         final_pass = result['passed']
         if final_pass:
             worksheet.write(row, col, 'PASS', pass_bold_format)
@@ -608,7 +557,6 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
             worksheet.write(row, col, 'FAIL', fail_bold_format)
         col += 1
         
-        # DSC
         dsc = result['surface_dsc']
         worksheet.write(row, col, round(dsc, 4))
         col += 1
@@ -617,7 +565,6 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
                       pass_format if dsc_pass else fail_format)
         col += 1
         
-        # HD95
         hd95 = result['hd95_mm']
         worksheet.write(row, col, round(hd95, 2))
         col += 1
@@ -626,7 +573,6 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
                       pass_format if hd95_pass else fail_format)
         col += 1
         
-        # SSIM
         ssim_val = result['ssim_defaced']
         worksheet.write(row, col, round(ssim_val, 4))
         col += 1
@@ -635,7 +581,6 @@ def save_results_to_excel(results: List[Dict], output_path: Path):
                       pass_format if ssim_pass else fail_format)
         col += 1
         
-        # PSNR
         psnr = result['psnr_defaced_db']
         worksheet.write(row, col, round(psnr, 2))
         col += 1
@@ -705,7 +650,6 @@ def main():
     print(f"Raw:     {args.raw}")
     print(f"GPU:     {args.gpu}")
     
-    # Subject 찾기
     subjects = []
     for item in args.defaced.iterdir():
         if item.is_dir():
@@ -721,7 +665,6 @@ def main():
     
     print(f"\n📊 총 {len(subjects)}개 subject 발견\n")
     
-    # 검증 실행
     verifier = DefacingVerifier(gpu_id=args.gpu)
     all_results = []
     success = 0
@@ -738,7 +681,6 @@ def main():
         else:
             failed += 1
     
-    # 최종 요약
     print(f"\n{'='*70}")
     print("검증 완료")
     print(f"{'='*70}")
@@ -747,13 +689,11 @@ def main():
     print(f"실패: {failed}")
     
     if all_results:
-        # 통과율
         pass_count = sum(1 for r in all_results if r['passed'])
         
         print(f"\n통과율: {pass_count}/{len(all_results)} "
               f"({pass_count/len(all_results)*100:.1f}%)")
         
-        # Excel 저장
         excel_path = Path("dicom_deface_verification.xlsx")
         save_results_to_excel(all_results, excel_path)
     
