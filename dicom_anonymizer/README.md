@@ -72,7 +72,7 @@
 - OS: Ubuntu 22.04
 - Conda required (used to install Python + ANTs dependencies)
 
-**Installation**
+**Installation**  
 Clone this repository and run the setup script. The script will automatically create a Conda environment and install FaceOff (and required dependencies such as ANTs).
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
@@ -88,7 +88,7 @@ If the help message is printed correctly, FaceOff is ready to use. Then activate
   conda activate dicom_deface_anonymizer
 ````
 
-**Usage**
+**Usage**  
 Run commands from the directory where dicom_deface_anonymizer.py exists.
 
 - Basic anonymization:
@@ -111,7 +111,7 @@ Run commands from the directory where dicom_deface_anonymizer.py exists.
 - ```--output```: Path to the output directory where defaced results will be written.
 - ```--subjects```: (Optional) List of subject IDs to process. (If, omitted, the tool processes all subjects found under --input.)
 
-**Output Structure**
+**Output Structure**  
 Each subject produces a dedicated output folder:
   ```
   output/
