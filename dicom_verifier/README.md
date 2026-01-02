@@ -46,14 +46,15 @@ Run commands from the directory where dicom_header_verifier.py exists.
   ```
 
 **Options**
-- ```--input```: Path to a DICOM file or top-level directory containing DICOM files to be verified.
-- ```--option```: (Optional) Change the verification level used.
-    - ```low```(default): low-level header verification citeria
-    - ```high```: high-level header verification citera
-- ```--output```: (Optional) Path and filename of the output Excel report.
-    - default: ```dicom_header_verificiation.xlsx```
+- ```--input```: Path to a DICOM file or a top-level directory containing DICOM files to be verified.
+- ```--option```: *(Optional)* Verification level to apply.
+  - ```low```(default): low-level header verification criteria
+  - ```high```: high-level header verification criteria
+- ```--output```: *(Optional)* Path and filename of the output Excel report.
+  - Default: `dicom_header_verification.xlsx`
+
  
-**Output***
+**Output**
 - An Excel file summarizing anonymization compliance for each inspected DICOM file.
 - The report includes tag-level verification results based on the selected anonymization level.
 
@@ -117,13 +118,13 @@ Run commands from the directory where dicom_deface_verifier.py exists.
 **Options**
 - ```--defaced```: Path to the top-level directory containing the defaced DICOM dataset (output of facial anonymization).
 - ```--raw```: Path to the top-level directory containing the original(raw) DICOM dataset used as reference.
-- ```--subjects```: (Optional) List of subject IDs to verify. (If omitted, all subjects under ```--defaced``` are processed.)
-- ```--output```: (Optional) Path and filename of the output Excel verification report.
+- ```--subjects```: *(Optional)* List of subject IDs to verify. (If omitted, all subjects under ```--defaced``` are processed.)
+- ```--output```: *(Optional)* Path and filename of the output Excel verification report.
     - default: ```dicom_deface_verificiation.xlsx```
-- ```--gpu```: (Optional) GPU device index to used for  verification.
+- ```--gpu```: *(Optional)* GPU device index to used for  verification.
     - default: GPU-0
 
-**Output***
+**Output**
 - An Excel file summarizing facial defacing verification results for each subject.
 - The report evaluates the adequacy of facial anonymization by comparing raw and defaced DICOM data.
 - Verification results are generated using a deep-learning-based segmentation model (nnUNet) to evaluate whether facial regions have been sufficiently anonymized.
