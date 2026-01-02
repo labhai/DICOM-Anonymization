@@ -111,7 +111,7 @@ Run commands from the directory where dicom_deface_anonymizer.py exists.
 **Options**
 - ```--input```: Path to the top-level input directory containing subjects folders (raw DICOM datasets).
 - ```--output```: Path to the output directory where defaced results will be written.
-- ```--subjects```: (Optional) List of subject IDs to process. (If omitted, the tool processes all subjects found under --input.)
+- ```--subjects```: *(Optional)* List of subject IDs to process. (If omitted, the tool processes all subjects found under --input.)
 
 **Output Structure**  
 Each subject produces a dedicated output folder:
