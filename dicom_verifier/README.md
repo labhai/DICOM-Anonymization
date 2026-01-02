@@ -129,6 +129,6 @@ Run commands from the directory where dicom_deface_verifier.py exists.
 - The report evaluates the adequacy of facial anonymization by comparing raw and defaced DICOM data.
 - Verification results are generated using a deep-learning-based segmentation model (nnUNet) to evaluate whether facial regions have been sufficiently anonymized.
 
-**Reference**
+**Reference**  
 Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
 
