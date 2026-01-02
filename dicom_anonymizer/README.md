@@ -1,6 +1,7 @@
 # DICOM Anonymization (`dicom_anonymizer`)
-## 1. Header anonymization (RSNA DICOM Anonymizer)
+This module provides tools for DICOM data anonymization, covering both header anonymization and facial information defacing.
 
+## 1. Header anonymization (RSNA DICOM Anonymizer)
 - Script-based anonymization using RSNA DICOM Anonymizer
 - Two anonymization levels:
   - Low-level: dicom_header_anonymizer_low_level.script
