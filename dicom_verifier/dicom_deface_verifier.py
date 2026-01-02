@@ -207,7 +207,6 @@ class DefacingVerifier:
             return fg
         except Exception as e:
             print(f"  ⚠ 전경 마스크 생성 실패: {e}")
-            # 간이 전경 사용
             defaced_img, _, _ = self.load_nifti_data(defaced_path)
             thr = np.percentile(defaced_img, 5)
             m = defaced_img > thr
