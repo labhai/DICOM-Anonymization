@@ -73,7 +73,8 @@
 - Conda required (used to install Python + ANTs dependencies)
 
 **Installation**  
-Clone this repository and run the setup script. The script will automatically create a Conda environment and install FaceOff (and required dependencies such as ANTs).
+Clone this repository and run the setup script.  
+The script will automatically create a Conda environment and install FaceOff (and required dependencies such as ANTs).
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
   cd dicom_anonymizer
