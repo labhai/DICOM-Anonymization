@@ -48,7 +48,11 @@ This module provides tools for DICOM data anonymization, covering both header an
    - Import Files or Import Directory  
 
 5. Run Anonymization  
-   - Progress and logs shown in GUI  
+   - Progress and logs shown in GUI
+  
+**Output**
+- Anonymized DICOM files are written to the configured Storage Directory.
+- The directory structure of the input data is preserved in the output.
 
 
 ### 2. Facial information anonymization 
@@ -76,7 +80,7 @@ Run commands from the directory where dicom_deface_anonymizer.py exists.
 - ```--output```: Path to the output directory where defaced results will be written.
 - ```--subjects```: *(Optional)* List of subject IDs to process. (If omitted, the tool processes all subjects found under --input.)
 
-**Output Structure**  
+**Output**  
 Each subject produces a dedicated output folder:
   ```
   output/
