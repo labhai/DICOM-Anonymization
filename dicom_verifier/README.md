@@ -2,24 +2,30 @@
 This module provides verification tools to validate the integrity of DICOM anonymization results, covering both header anonymization and facial defacing.
 Verification results are exported as Excel reports for downstream review.
 
-## 1. Header anonymization verification
+## 1. Header anonymization verification (dicom_header_verifier.py)
+- Verification of DICOM header anonymization compliance
+- Supports both low-level and high-level anonymization criteria
+- Inspects DICOM tags and generates results in an Excel report
 
-**Environment**
-- OS: Ubuntu 22.04
-- Python >= 3.8
+## 2. Facial defacing verification (dicom_deface_verifier.py)
+- Verification of facial defacing adequacy in DICOM images
+- Compares raw and defaced DICOM datasets at the subject level
+- Uses a deep-learning-based segmentation model (nnUNet) for verification
+- Generates verification results in an Excel report
 
-**Installation**  
-Clone this repository and run the setup script to install the required Python dependencies:
-  ```
-  git clone https://github.com/labhai/DICOM-Anonymization
-  cd dicom_verifier
-  bash dicom_header_verifier.sh
-  ```
-If you encounter a permission error:
-  ```
-  chmod +x dicom_header_verifier.sh
-  bash dicom_header_verifier.sh
-  ```
+
+## Repository Structure
+```
+├── dicom_verifier
+│   ├── dicom_header_verifier.py            # Header anonymization verifier
+│   ├── dicom_header_verifier.sh            # Header verifier environment setup
+│   ├── dicom_deface_verifier.py             # Facial anonymization verifier
+│   └── dicom_deface_verifier.sh             # Facial verifier environment setup
+```
+
+## Installation and Usage  
+
+### 1. Header anonymization verification
 
 **Usage**
 Run commands from the directory where dicom_header_verifier.py exists.  
@@ -59,27 +65,7 @@ Run commands from the directory where dicom_header_verifier.py exists.
 - The report includes tag-level verification results based on the selected anonymization level.
 
 
-## 2. Facial defacing verification 
-
-**Environment**
-- OS: Ubuntu 22.04
-- Conda required
-- CUDA-enabled GPU recommended (for nnUNet-based verification)
-
-
-**Installation**
-Clone this repository and run the setup script.  
-The script will automatically create a Conda environment and install the nnUNet model.
-  ```
-  git clone https://github.com/labhai/DICOM-Anonymization
-  cd dicom_verifier
-  bash dicom_deface_verifier.sh
-  ```
-At the final step, you may be prompted to remove downloaded archives to save disk space.  
-After installation, activate the generated Conda environment:
-  ```
-  conda activate dicom_deface_verify
-  ```
+### 2. Facial defacing verification 
 
 **Usage**
 Run commands from the directory where dicom_deface_verifier.py exists.  
