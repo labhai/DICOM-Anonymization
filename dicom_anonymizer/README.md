@@ -24,22 +24,6 @@
 
 ### 1. Header anonymization (RSNA DICOM Anonymizer) 
 
-**Environment**
-- OS: Windows
-- Python: 3.12 (recommended)
-- GUI support required
-
-- Verify Python installation:
-  ```
-  python --version
-  python -m tkinter
-  ```
-
-**Installation**
-  ```
-  pip install rsna-anonymizer
-  ```
-
 **Usage**
   ```
   rsna-anonymizer
@@ -67,28 +51,6 @@
 
 
 ### 2. Facial information anonymization 
-
-**Environment**
-- OS: Ubuntu 22.04
-- Conda required (used to install Python + ANTs dependencies)
-
-**Installation**  
-Clone this repository and run the setup script.  
-The script will automatically create a Conda environment and install FaceOff (and required dependencies such as ANTs).
-  ```
-  git clone https://github.com/labhai/DICOM-Anonymization
-  cd dicom_anonymizer
-  bash dicom_deface_anonymizer.sh
-  ```
-After installation, verify that tool is available:
-  ```
-  faceoff -h 2>/dev/null
-  ```
-If the help message is printed correctly, FaceOff is ready to use.  
-Then activate the generated Conda environment (example):
-  ```
-  conda activate dicom_deface_anonymizer
-````
 
 **Usage**  
 Run commands from the directory where dicom_deface_anonymizer.py exists.
