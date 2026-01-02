@@ -32,13 +32,13 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ### Repository Structure
 ```
-├── anonymization transformation
+├── dicom_anonymizer
 │   ├── anonymizer_high_level.script        # Header anonymization (high-level)
 │   ├── anonymizer_low_level.script         # Header anonymization (low-level)
 │   ├── dicom_deface_anonymizer.py          # Facial anonymization
 │   └── dicom_deface_anonymizer.sh          # Facial anonymization environment setup
 │
-├── anonymization validation
+├── dicom_verifier
 │   ├── dicom_header_verifier.py            # Header anonymization verifier
 │   ├── dicom_header_verifier.sh            # Header verifier environment setup
 │   ├── dicom_deface_verifier.py             # Facial anonymization verifier
@@ -104,7 +104,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
   cd dicom_anonymizer
-  bash anonymization\ transformation/dicom_deface_anonymizer.sh
+  bash dicom_deface_anonymizer.sh
   ```
 - Verify installation:
   ```
@@ -139,7 +139,6 @@ Basic anonymization:
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
   cd dicom_verifier
-  chmod +x dicom_header_verifier.sh
   bash dicom_header_verifier.sh
   ```
 
@@ -176,7 +175,7 @@ Basic anonymization:
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
   cd dicom_verifier
-  bash anonymization\ validation/dicom_deface_verifier.sh
+  bash dicom_deface_verifier.sh
   ```
 
 **Usage**
