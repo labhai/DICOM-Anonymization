@@ -37,7 +37,7 @@ Run commands from the directory where dicom_header_verifier.py exists.
     --option high
   ```
 
-- change output filename (default: dicom_header_verification.xlsx):
+- Change output filename (default: dicom_header_verification.xlsx):
   ```
   python dicom_header_verifier.py \
     --input /path/to/dicom \
@@ -69,7 +69,7 @@ Run commands from the directory where dicom_header_verifier.py exists.
 
 **Installation**
 Clone this repository and run the setup script.  
-The script will automatically create a Conda environment and install nnUNet model.
+The script will automatically create a Conda environment and install the nnUNet model.
   ```
   git clone https://github.com/labhai/DICOM-Anonymization
   cd dicom_verifier
@@ -117,12 +117,12 @@ Run commands from the directory where dicom_deface_verifier.py exists.
 
 **Options**
 - ```--defaced```: Path to the top-level directory containing the defaced DICOM dataset (output of facial anonymization).
-- ```--raw```: Path to the top-level directory containing the original(raw) DICOM dataset used as reference.
+- ```--raw```: Path to the top-level directory containing the original (raw) DICOM dataset used as reference.
 - ```--subjects```: *(Optional)* List of subject IDs to verify. (If omitted, all subjects under ```--defaced``` are processed.)
 - ```--output```: *(Optional)* Path and filename of the output Excel verification report.
-    - default: ```dicom_deface_verificiation.xlsx```
-- ```--gpu```: *(Optional)* GPU device index to used for  verification.
-    - default: GPU-0
+    - default: ```dicom_deface_verification.xlsx```
+- ```--gpu```: *(Optional)* GPU device index to use for verification.
+    - Default: GPU 0
 
 **Output**
 - An Excel file summarizing facial defacing verification results for each subject.
