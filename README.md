@@ -18,7 +18,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 - Automated 3D facial defacing for head-related DICOM images
 - Conda-based environment
 
-### Validation (`dicom_verifier`)
+### Verification (`dicom_verifier`)
 
 #### 1. Header anonymization verification (dicom_header_verifier)
 - Low / High-level criteria support
@@ -47,18 +47,129 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 ```
 
 ## Installation and Usage  
-This repository is organized into two main components: dicom_anonymizer and dicom_verifier.  
-Each component provides its own detailed installation and usage instructions.  
 
+### Anonymization  
 For DICOM anonymization (header anonymization and facial defacing), refer to the README file inside the dicom_anonymizer/ directory.  
 
+#### 1. Header anonymization (RSNA DICOM Anonymizer) 
+
+**Environment**
+- OS: Windows
+- Python: 3.12 (recommended)
+- GUI support required
+
+- Verify Python installation:
+  ```
+  python --version
+  python -m tkinter
+  ```
+
+**Installation**
+  ```
+  pip install rsna-anonymizer
+  ```
+
+**Usage**
+  ```
+  rsna-anonymizer
+  ```
+
+#### 2. Facial information anonymization 
+
+**Environment**
+- OS: Ubuntu 22.04
+- Conda required (used to install Python + ANTs dependencies)
+
+**Installation**  
+Clone this repository and run the setup script.  
+The script will automatically create a Conda environment and install FaceOff (and required dependencies such as ANTs).
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_anonymizer
+  bash dicom_deface_anonymizer.sh
+  ```
+After installation, verify that tool is available:
+  ```
+  faceoff -h 2>/dev/null
+  ```
+If the help message is printed correctly, FaceOff is ready to use.  
+Then activate the generated Conda environment (example):
+  ```
+  conda activate dicom_deface_anonymizer
+````
+
+**Usage**  
+Run commands from the directory where dicom_deface_anonymizer.py exists.
+
+- Basic anonymization:
+  ```
+  python dicom_deface_anonymizer.py \
+    --input /path/to/root \
+    --output /path/to/output
+  ```
+
+### Verification  
 For DICOM anonymization verification (header verification and facial defacing verification), refer to the README file inside the dicom_verifier/ directory.  
 
-Each submodule README includes:
-- Required environment
-- installation instructions
-- Detailed command-line usage examples
-- Option descriptions and output formats
+#### 1. Header anonymization verification
+
+**Environment**
+- OS: Ubuntu 22.04
+- Python >= 3.8
+
+**Installation**  
+Clone this repository and run the setup script to install the required Python dependencies:
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_verifier
+  bash dicom_header_verifier.sh
+  ```
+If you encounter a permission error:
+  ```
+  chmod +x dicom_header_verifier.sh
+  bash dicom_header_verifier.sh
+  ```
+
+**Usage**
+Run commands from the directory where dicom_header_verifier.py exists.  
+
+- Basic verification (default: low-level criteria):
+  ```
+  python dicom_header_verifier.py \
+    --input /path/to/dicom
+  ```
+
+#### 2. Facial defacing verification 
+
+**Environment**
+- OS: Ubuntu 22.04
+- Conda required
+- CUDA-enabled GPU recommended (for nnUNet-based verification)
+
+
+**Installation**
+Clone this repository and run the setup script.  
+The script will automatically create a Conda environment and install the nnUNet model.
+  ```
+  git clone https://github.com/labhai/DICOM-Anonymization
+  cd dicom_verifier
+  bash dicom_deface_verifier.sh
+  ```
+At the final step, you may be prompted to remove downloaded archives to save disk space.  
+After installation, activate the generated Conda environment:
+  ```
+  conda activate dicom_deface_verify
+  ```
+
+**Usage**
+Run commands from the directory where dicom_deface_verifier.py exists.  
+
+- Basic verification:
+  ```
+  python dicom_deface_verifier.py \
+    --defaced /path/to/defaced \
+    --raw /path/to/raw
+  ```
 
 
 ## Example & Test Dataset (Demo Data)
