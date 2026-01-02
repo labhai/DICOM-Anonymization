@@ -14,17 +14,17 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   - High-level: dicom_header_anonymizer_high_level.script
 - GUI-based workflow (Windows)
 
-#### 2. Facial information anonymization (dicom_deface_anonymizer.py)
+#### 2. Facial information anonymization (dicom_deface_anonymizer)
 - Automated 3D facial defacing for head-related DICOM images
 - Conda-based environment
 
 ### Validation (`dicom_verifier`)
 
-#### 1. Header anonymization verification (dicom_header_verifier.py)
+#### 1. Header anonymization verification (dicom_header_verifier)
 - Low / High-level criteria support
 - Excel-based verification reports
 
-#### 2. Facial defacing verification (dicom_deface_verifier.py)
+#### 2. Facial defacing verification (dicom_deface_verifier)
 - Deep-learning-based verification (nnUNet)
 - Conda-based environment
 - Reference: Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
