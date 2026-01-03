@@ -32,11 +32,11 @@ This module provides tools for DICOM data anonymization, covering both header an
 
 **Workflow**
 
-1. Launch the RSNA DICOM Anonymizer tool (Main screen)
+1. Launch the RSNA DICOM Anonymizer tool (Main screen)  
    <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="300"/>
    
 2. Create Project  
-   - From the top menu bar, File → New Project
+   - From the top menu bar, File → New Project  
    <img src="https://github.com/user-attachments/files/24415809/rsna-2.bmp" width="200"/>
 
 3. Configure Project  
@@ -46,14 +46,14 @@ This module provides tools for DICOM data anonymization, covering both header an
    - Modalities (CR, DX, CT, MR, etc.)
    - Select Script File  
      - Low-level anonymization (**dicom_header_anonymizer_low_level.script**)  
-     - High-level anonymization (**dicom_header_anonymizer_high_level.script**)
+     - High-level anonymization (**dicom_header_anonymizer_high_level.script**)  
    <img src="https://github.com/user-attachments/files/24415815/rsna-3.bmp" width="300"/>
 
 4. Import DICOM Files  
    - From the top menu bar, Import Files or Import Directory  
 
 5. Run Anonymization  
-   - Progress and logs shown in GUI
+   - Progress and logs shown in GUI  
    <img src="https://github.com/user-attachments/assets/0e9cf9fc-93b4-4d7d-b436-e192b54a8be8" width="400"/>
   
 **Output**
