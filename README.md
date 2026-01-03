@@ -130,7 +130,7 @@ If you encounter a permission error:
   bash dicom_header_verifier.sh
   ```
 
-**Usage**
+**Usage**  
 Run commands from the directory where dicom_header_verifier.py exists.  
 
 - Basic verification (default: low-level criteria):
@@ -161,7 +161,7 @@ After installation, activate the generated Conda environment:
   conda activate dicom_deface_verify
   ```
 
-**Usage**
+**Usage**  
 Run commands from the directory where dicom_deface_verifier.py exists.  
 
 - Basic verification:
