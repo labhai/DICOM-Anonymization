@@ -36,11 +36,11 @@ This module provides tools for DICOM data anonymization, covering both header an
    <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="300"/>
    
 2. Create Project
-   - From the top menu bar, File → New Project  
-   <img src="https://github.com/user-attachments/files/24415809/rsna-2.bmp" width="200"/>
+   <img src="https://github.com/user-attachments/files/24415809/rsna-2.bmp" width="150"/>
+   - Select File → New Project from the top menu bar
 
 3. Configure Project  
-   <img src="https://github.com/user-attachments/files/24415815/rsna-3.bmp" width="300"/>
+   <img src="https://github.com/user-attachments/files/24415815/rsna-3.bmp" width="25-"/>
    - Project Name  
    - UID Root (affects generated DICOM UIDs)  
    - Storage Directory (output path)  
