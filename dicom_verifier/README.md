@@ -172,11 +172,10 @@ At the top of the sheet, the applied threshold criteria are explicitly listed, e
   - SSIM ≤ 0.80
   - PSNR ≤ 10.0 dB  
 
-
-  
-- High DSC and low HD95 indicate that the defaced region sufficiently overlaps with the facial region detected by the verification model.
-- Low SSIM and PSNR values confirm that facial texture information has been effectively destroyed, reducing re-identification risk.
-- Subjects satisfying all metric thresholds are automatically marked as PASS, while any threshold violation results in FAIL.
+The following metrics are used to quantify both the spatial coverage of facial defacing and the degree of visual information destruction:
+  - High DSC and low HD95 indicate that the defaced region sufficiently overlaps with the facial region detected by the verification model.
+  - Low SSIM and PSNR values confirm that facial texture information has been effectively destroyed, reducing re-identification risk.
+  - Subjects satisfying all metric thresholds are automatically marked as PASS, while any threshold violation results in FAIL.
 
 This allows reviewers to immediately understand the evaluation standards used.
 
