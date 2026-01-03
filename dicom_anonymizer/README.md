@@ -51,7 +51,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 
 4. Import DICOM Files
    <img src="https://github.com/user-attachments/assets/f685abd7-5321-4201-9deb-1cf98fb9c91c" width="150"/>
-   - From the top menu bar, Import Files or Import Directory  Select File → New Project from the top menu bar
+   - Select File → Import Files or Import Directory from the top menu bar
 
 5. Run Anonymization  
    <img src="https://github.com/user-attachments/assets/0e9cf9fc-93b4-4d7d-b436-e192b54a8be8" width="400"/>
