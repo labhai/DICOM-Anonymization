@@ -31,23 +31,27 @@ This module provides tools for DICOM data anonymization, covering both header an
   ```
 
 **Workflow**
-1. Create Project  
-   - File → New Project  
 
-2. Configure Project  
+1. rsna anonymizer 도구 실행 시 메인화면
+  <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp">
+   
+3. Create Project  
+   - File → New Project
+
+4. Configure Project  
    - Project Name  
    - UID Root (affects generated DICOM UIDs)  
    - Storage Directory (output path)  
-   - Modalities (CR, DX, CT, MR, etc.)  
+   - Modalities (CR, DX, CT, MR, etc.)
+   - Select Script File  
+     - Low-level anonymization (**dicom_header_anonymizer_low_level.script**)  
+     - High-level anonymization (**dicom_header_anonymizer_high_level.script**)  
 
-3. Select Script File  
-   - Low-level anonymization (**dicom_header_anonymizer_low_level.script**)  
-   - High-level anonymization (**dicom_header_anonymizer_high_level.script**)  
 
-4. Import DICOM Files  
+5. Import DICOM Files  
    - Import Files or Import Directory  
 
-5. Run Anonymization  
+6. Run Anonymization  
    - Progress and logs shown in GUI
   
 **Output**
