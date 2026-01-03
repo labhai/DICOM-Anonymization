@@ -83,8 +83,8 @@ This sheet enables rapid comparison across files and immediate identification of
   | `Number of passed tags` | The number of tags that fully satisfy the anonymization policy (properly anonymized or allowed to remain unchanged). |  
   | `Number of warning tags` | The number of tags that do not strictly satisfy the anonymization policy but are classified as non-critical, resulting in a warning rather than an immediate failure. |  
   | `Non-anonymization rate (%)` | The proportion of tags that failed anonymization relative to the total number of inspected tags, expressed as a percentage. This value is used to assess overall anonymization adequacy at the file level. |  
-  | `Verification result for absolute anonymization fields` | Indicates whether all *absolute anonymization fields* (i.e., tags that must always be anonymized under any policy) have been successfully anonymized. Any failure in these fields results in an automatic **FAIL**. |  
-  | `Final decision (PASS / FAIL)` | The overall verification outcome for the file. A file is marked **PASS** if it satisfies the absolute anonymization requirements and its non-anonymization rate is below the predefined threshold; otherwise, it is marked **FAIL**. |  
+  | `Verification result for absolute anonymization fields` | Indicates whether all *absolute anonymization fields* (i.e., tags that must always be anonymized under any policy) have been successfully anonymized. Any failure in these fields results in an automatic ***FAIL***. |  
+  | `Final decision (PASS / FAIL)` | The overall verification outcome for the file. A file is marked ***PASS*** if it satisfies the absolute anonymization requirements and its non-anonymization rate is below the predefined threshold; otherwise, it is marked ***FAIL***. |  
 
 
 ***2) Per-file Sheets: Individual DICOM Verification Results***  
