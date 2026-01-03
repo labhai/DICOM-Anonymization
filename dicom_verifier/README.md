@@ -164,13 +164,13 @@ The main sheet presents subject-level verification results in tabular form.
     - SSIM (Structural Similarity Index)
     - PSNR (Peak Signal-to-Noise Ratio, dB)
     - Pass/Fail decision for each metric based on predefined thresholds
-    - Final verification result (PASS / FAIL)
-
-At the top of the sheet, the applied threshold criteria are explicitly listed, e.g.:
+    - Final verification result (PASS / FAIL)  
+  
+At the top of the sheet, the applied threshold criteria are explicitly listed, e.g.:  
     - DSC ≥ 0.80
     - HD95 ≤ 30.0 mm
     - SSIM ≤ 0.80
-    - PSNR ≤ 10.0 dB
+    - PSNR ≤ 10.0 dB  
   
 - High DSC and low HD95 indicate that the defaced region sufficiently overlaps with the facial region detected by the verification model.
 - Low SSIM and PSNR values confirm that facial texture information has been effectively destroyed, reducing re-identification risk.
