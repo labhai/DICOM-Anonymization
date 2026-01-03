@@ -33,7 +33,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 **Workflow**
 
 1. rsna anonymizer 도구 실행 시 메인화면
-  <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp">
+  <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="200" height="400"/>
    
 3. Create Project  
    - File → New Project
