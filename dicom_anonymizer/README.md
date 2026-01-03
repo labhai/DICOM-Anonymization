@@ -33,7 +33,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 **Workflow**
 
 1. Launch the RSNA DICOM Anonymizer tool (Main screen)
-    <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="300"/>
+   <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="300"/>
    
 2. Create Project  
    - From the top menu bar, File → New Project
@@ -52,7 +52,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 4. Import DICOM Files  
    - From the top menu bar, Import Files or Import Directory  
 
-6. Run Anonymization  
+5. Run Anonymization  
    - Progress and logs shown in GUI
    <img src="https://github.com/user-attachments/assets/0e9cf9fc-93b4-4d7d-b436-e192b54a8be8" width="400"/>
   
