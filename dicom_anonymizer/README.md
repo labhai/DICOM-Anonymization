@@ -32,7 +32,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 
 **Workflow**
 
-1. rsna anonymizer 도구 실행 시 메인화면
+1. Launch the RSNA DICOM Anonymizer tool (Main screen)
   <img src="https://github.com/user-attachments/files/24415758/rsna-1.bmp" width="300"/>
    
 3. Create Project  
