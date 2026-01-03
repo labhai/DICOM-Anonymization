@@ -75,7 +75,7 @@ The first sheet provides an integrated overview of all inspected DICOM files, al
     - Final decision (PASS / FAIL)  
 This sheet enables rapid comparison across files and immediate identification of files requiring additional review.
 
-- Definition of Summary Metrics
+- Definition of Summary Metrics  
 | Metric | Description |
 |------|-------------|
 | `Total number of inspected DICOM tags` | The total count of DICOM header tags evaluated for anonymization compliance in a given file. |
