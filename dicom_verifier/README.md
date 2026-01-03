@@ -171,6 +171,8 @@ At the top of the sheet, the applied threshold criteria are explicitly listed, e
   - HD95 ≤ 30.0 mm
   - SSIM ≤ 0.80
   - PSNR ≤ 10.0 dB  
+
+
   
 - High DSC and low HD95 indicate that the defaced region sufficiently overlaps with the facial region detected by the verification model.
 - Low SSIM and PSNR values confirm that facial texture information has been effectively destroyed, reducing re-identification risk.
