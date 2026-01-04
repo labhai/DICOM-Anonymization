@@ -4,16 +4,16 @@ This module provides tools for DICOM data anonymization, covering both header an
 ## Directory contains
 
 - `dicom_header_anonymizer_high_level.script`  
-  설명 추가
+  High-level RSNA DICOM Anonymizer script for aggressive header anonymization.
 
 - `dicom_header_anonymizer_low_level.script`  
-  설명 추가
+  Low-level RSNA DICOM Anonymizer script for conservative header anonymization.
 
 - `dicom_deface_anonymizer.py`  
-  설명 추가
+  Performs facial information anonymization (defacing) on head-related DICOM images.
 
 - `dicom_deface_anonymizer.sh`  
-  설명 추가
+  Sets up the Conda environment and installs dependencies for facial anonymization.
 
 ## What this script does
 
