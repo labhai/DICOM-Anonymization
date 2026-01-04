@@ -8,7 +8,7 @@ DICOM (Digital Imaging and Communications in Medicine) is the universal standard
 
 ### Why Anonymization Is Necessary
 - **Header Anonymization**  
-  DICOM headers contain patient identifiers and quasi-identifiers such as names, IDs, dates, and institution information. If left anonymized, these fields can enable re-identification, especially when data are shared across institutions or combined with external records. Therefore, anonymizing DICOM header metadata is essential before any data sharing or secondary use.  
+  DICOM headers contain patient identifiers and quasi-identifiers such as names, IDs, dates, and institution information. If not properly anonymized, these fields can enable re-identification, especially when data are shared across institutions or combined with external records. Therefore, anonymizing DICOM header metadata is essential before any data sharing or secondary use.  
   
 - **Facial Information Defacing**  
   Head CT and brain MRI images may include facial structures that can reveal a person’s identity, even when all header information has been removed. With advances in 3D reconstruction and facial recognition, such images pose a growing privacy risk. As a result, pixel-level facial defacing is required to ensure robust protection of patient privacy.
