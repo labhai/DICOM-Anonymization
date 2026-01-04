@@ -6,7 +6,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 ### Header anonymization overview
 DICOM header anonymization is performed based on established privacy standards, including HIPAA Safe Harbor and DICOM PS3.15 Attribute Confidentiality Profiles.  
 Header fields are classified by re-identification risk, and different anonymization rules are applied depending on the selected anonymization level (low or high).  
-- Target Fields for Header Anonymization
+- **Target Fields for Header Anonymization**  
   The following table summarizes representative header fields targeted for anonymization and how they are handled at each level.
   (This is a simplified overview; the full policy is defined in the script files.)  
   | Field Category | DICOM Tags (examples) | Low-level Policy | High-level Policy |
@@ -17,7 +17,7 @@ Header fields are classified by re-identification risk, and different anonymizat
   | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
   | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Generalized (binned) |
   | Low-risk attributes      | Sex                               | Preserved          | Preserved            |
-- Anonymization Levels  
+- **Anonymization Levels**  
     - Low-level anonymization  
       Prioritizing privacy protection while preserving key metadata needed for analysis and longitudinal linkage.
     - High-level anonymization  
@@ -26,14 +26,14 @@ Header fields are classified by re-identification risk, and different anonymizat
 ### Facial information anonymization overview  
 Facial information anonymization is applied to head- and neck-related DICOM images (e.g., head CT, brain MRI), where facial contours may remain visible in pixel data even after complete header anonymization.  
 To mitigate this risk, pixel-level facial defacing is performed to remove external facial features while preserving internal anatomical structures relevant for research and analysis.  
-- Target Regions for Facial Anonymization
+- **Target Regions for Facial Anonymization**  
   The anonymization process focuses on removing externally identifiable facial structures, while minimizing impact on clinically relevant regions.  
   | Category | Target Regions | Anonymization Strategy |
   | -------- | -------------- | ---------------------- |
   | Facial surface     | Eyes, nose, mouth, skin surface            | Defaced |
   | Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
   | Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
-- Anonymization Levels  
+- **Anonymization Levels**  
     - Low-level anonymization
       Facial defacing is not applied by default, assuming a controlled internal research environment where header anonymization alone is sufficient. Facial defacing may be optionally applied depending on study requirements.  
     - High-level anonymization
