@@ -27,12 +27,12 @@ Header fields are classified by re-identification risk, and different anonymizat
 Facial information anonymization is applied to head- and neck-related DICOM images (e.g., head CT, brain MRI), where facial contours may remain visible in pixel data even after complete header anonymization.  
 To mitigate this risk, pixel-level facial defacing is performed to remove external facial features while preserving internal anatomical structures relevant for research and analysis.  
 - Target Regions for Facial Anonymization
-  The anonymization process focuses on removing externally identifiable facial structures, while minimizing impact on clinically relevant regions.
-| Category | Target Regions | Anonymization Strategy |
-| -------- | -------------- | ---------------------- |
-| Facial surface     | Eyes, nose, mouth, skin surface            | Defaced |
-| Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
-| Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
+  The anonymization process focuses on removing externally identifiable facial structures, while minimizing impact on clinically relevant regions.  
+  | Category | Target Regions | Anonymization Strategy |
+  | -------- | -------------- | ---------------------- |
+  | Facial surface     | Eyes, nose, mouth, skin surface            | Defaced |
+  | Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
+  | Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
 - Anonymization Levels  
     - Low-level anonymization
       Facial defacing is not applied by default, assuming a controlled internal research environment where header anonymization alone is sufficient. Facial defacing may be optionally applied depending on study requirements.  
