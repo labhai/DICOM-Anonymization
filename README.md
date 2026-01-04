@@ -3,7 +3,7 @@
 
 This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
 
-## Features
+## Repository Structure
 
 ### Anonymization (`dicom_anonymizer`)
 #### 1. Header anonymization (RSNA DICOM Anonymizer)
@@ -20,33 +20,16 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ### Verification (`dicom_verifier`)
 
-#### 1. Header anonymization verification (dicom_header_verifier)
+#### 1. Header verification (dicom_header_verifier)
 - Low / High-level criteria support
 - Excel-based verification reports
 
-#### 2. Facial defacing verification (dicom_deface_verifier)
+#### 2. Facial information verification (dicom_deface_verifier)
 - Deep-learning-based verification (nnUNet)
 - Conda-based environment
 - Reference: Nohel, Michal, et al. "Unified Framework for Foreground and Anonymization Area Segmentation in CT and MRI Data." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden, 2025.
 
-
-### Repository Structure
-```
-├── dicom_anonymizer
-│   ├── dicom_header_anonymizer_high_level.script        # Header anonymization (high-level)
-│   ├── dicom_header_anonymizer_low_level.script         # Header anonymization (low-level)
-│   ├── dicom_deface_anonymizer.py          # Facial anonymization
-│   └── dicom_deface_anonymizer.sh          # Facial anonymization environment setup
-│
-├── dicom_verifier
-│   ├── dicom_header_verifier.py            # Header anonymization verifier
-│   ├── dicom_header_verifier.sh            # Header verifier environment setup
-│   ├── dicom_deface_verifier.py             # Facial anonymization verifier
-│   └── dicom_deface_verifier.sh             # Facial verifier environment setup
-
-```
-
-## Installation and Usage  
+## Requirements and Installation
 
 ### Anonymization  
 For DICOM anonymization (header anonymization and facial defacing), refer to the README file inside the dicom_anonymizer/ directory.  
@@ -67,11 +50,6 @@ For DICOM anonymization (header anonymization and facial defacing), refer to the
 **Installation**
   ```
   pip install rsna-anonymizer
-  ```
-
-**Usage**
-  ```
-  rsna-anonymizer
   ```
 
 #### 2. Facial information anonymization 
@@ -98,20 +76,10 @@ Then activate the generated Conda environment (example):
   conda activate dicom_deface_anonymizer
 ````
 
-**Usage**  
-Run commands from the directory where dicom_deface_anonymizer.py exists.
-
-- Basic anonymization:
-  ```
-  python dicom_deface_anonymizer.py \
-    --input /path/to/root \
-    --output /path/to/output
-  ```
-
 ### Verification  
 For DICOM anonymization verification (header verification and facial defacing verification), refer to the README file inside the dicom_verifier/ directory.  
 
-#### 1. Header anonymization verification
+#### 1. Header verification
 
 **Environment**
 - OS: Ubuntu 22.04
@@ -130,16 +98,7 @@ If you encounter a permission error:
   bash dicom_header_verifier.sh
   ```
 
-**Usage**  
-Run commands from the directory where dicom_header_verifier.py exists.  
-
-- Basic verification (default: low-level criteria):
-  ```
-  python dicom_header_verifier.py \
-    --input /path/to/dicom
-  ```
-
-#### 2. Facial defacing verification 
+#### 2. Facial information verification 
 
 **Environment**
 - OS: Ubuntu 22.04
@@ -161,18 +120,34 @@ After installation, activate the generated Conda environment:
   conda activate dicom_deface_verify
   ```
 
-**Usage**  
-Run commands from the directory where dicom_deface_verifier.py exists.  
+## Example (Quickstart)
 
-- Basic verification:
-  ```
-  python dicom_deface_verifier.py \
-    --defaced /path/to/defaced \
-    --raw /path/to/raw
-  ```
+### Header anonymization
+```bash
+rsna-anonymizer
+```
 
+### Header verification
+```bash
+python dicom_header_verifier.py \
+  --input /path/to/dicom
+```
 
-## Example & Test Dataset (Demo Data)
+### Facial information anonymization
+```bash
+python dicom_deface_anonymizer.py \
+  --input /path/to/root \
+  --output /path/to/output
+```
+
+### Facial information verification
+```bash
+python dicom_deface_verifier.py \
+  --defaced /path/to/defaced \
+  --raw /path/to/raw
+```
+
+## Test Dataset (Demo Data)
 
 ⚠️ No Test DICOM data is provided in this repository due to privacy and regulatory restrictions.
 
