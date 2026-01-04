@@ -2,19 +2,7 @@
 This module provides verification tools to validate the integrity of DICOM anonymization results, covering both header anonymization and facial defacing.
 Verification results are exported as Excel reports for downstream review.
 
-## 1. Header anonymization verification (dicom_header_verifier.py)
-- Verification of DICOM header anonymization compliance
-- Supports both low-level and high-level anonymization criteria
-- Inspects DICOM tags and generates results in an Excel report
-
-## 2. Facial defacing verification (dicom_deface_verifier.py)
-- Verification of facial defacing adequacy in DICOM images
-- Compares raw and defaced DICOM datasets at the subject level
-- Uses a deep-learning-based segmentation model (nnUNet) for verification
-- Generates verification results in an Excel report
-
-
-## Repository Structure
+## Directory contains
 ```
 ├── dicom_verifier
 │   ├── dicom_header_verifier.py            # Header anonymization verifier
@@ -23,7 +11,21 @@ Verification results are exported as Excel reports for downstream review.
 │   └── dicom_deface_verifier.sh             # Facial verifier environment setup
 ```
 
-## Installation and Usage  
+## What this script does
+
+### 1. Header anonymization verification (dicom_header_verifier.py)
+- Verification of DICOM header anonymization compliance
+- Supports both low-level and high-level anonymization criteria
+- Inspects DICOM tags and generates results in an Excel report
+
+### 2. Facial defacing verification (dicom_deface_verifier.py)
+- Verification of facial defacing adequacy in DICOM images
+- Compares raw and defaced DICOM datasets at the subject level
+- Uses a deep-learning-based segmentation model (nnUNet) for verification
+- Generates verification results in an Excel report
+
+
+## Usage  
 
 ### 1. Header anonymization verification
 
