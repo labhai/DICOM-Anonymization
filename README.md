@@ -11,7 +11,7 @@ A DICOM file contains not only the image itself but also extensive metadata in i
 - **Header Anonymization**  
   DICOM headers contain patient identifiers and quasi-identifiers such as names, IDs, dates, and institution information. If not properly anonymized, these fields can enable re-identification, especially when data are shared across institutions or combined with external records. Therefore, anonymizing DICOM header metadata is essential before any data sharing or secondary use.  
   
-- **Facial Information Defacing**  
+- **Facial Information Anonymization**  
   Head CT and brain MRI images may include facial structures that can reveal a person’s identity, even when all header information has been removed. With advances in 3D reconstruction and facial recognition, such images pose a growing privacy risk. As a result, pixel-level facial defacing is required to ensure robust protection of patient privacy.
 
 ## Repository Structure
