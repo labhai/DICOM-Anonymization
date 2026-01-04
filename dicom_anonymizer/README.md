@@ -18,9 +18,11 @@ Header fields are classified by re-identification risk, and different anonymizat
   | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
   | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Generalized (binned) |
   | Low-risk attributes      | Sex                               | Preserved          | Preserved            |
-
-
-
+- Anonymization Levels  
+    - Low-level anonymization  
+      Prioritizing privacy protection while preserving key metadata needed for analysis and longitudinal linkage.
+    - High-level anonymization  
+      Applying stricter removal or generalization rules to further reduce re-identification risk.  
 
 ## Directory contains
 
