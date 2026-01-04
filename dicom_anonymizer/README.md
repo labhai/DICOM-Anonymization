@@ -13,7 +13,6 @@ Header fields are classified by re-identification risk, and different anonymizat
   | -------------- | ------------------ | ---------------- | ----------------- |
   | absolute identifiers     | Patient Name, Birth Date, Address | Removed            | Removed              |
   | Patient identifier       | Patient ID                        | Replaced with hash | Removed              |
-  | UIDs                     | Study / Series / SOP Instance UID | Replaced with hash | Removed              |
   | Dates & times            | Study Date, Acquisition Date      | Replaced with hash | Removed              |
   | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
   | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Generalized (binned) |
