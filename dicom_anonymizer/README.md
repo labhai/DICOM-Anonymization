@@ -34,9 +34,9 @@ To mitigate this risk, pixel-level facial defacing is performed to remove extern
   | Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
   | Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
 - **Anonymization Levels**  
-    - Low-level anonymization
+    - Low-level anonymization  
       Facial defacing is not applied by default, assuming a controlled internal research environment where header anonymization alone is sufficient. Facial defacing may be optionally applied depending on study requirements.  
-    - High-level anonymization
+    - High-level anonymization  
       Facial defacing is applied by default for head(face)-related images intended for external sharing or multi-institutional use, where re-identification risk is higher.  
 
 This anonymization policy design allows flexible adjustment of anonymization strength according to the data sharing scope and re-identification risk, while balancing privacy protection and data usability.
