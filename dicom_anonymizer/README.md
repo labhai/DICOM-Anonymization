@@ -2,13 +2,18 @@
 This module provides tools for DICOM data anonymization, covering both header anonymization and facial information defacing.
 
 ## Directory contains
-```
-├── dicom_anonymizer
-│   ├── dicom_header_anonymizer_high_level.script        # Header anonymization (high-level)
-│   ├── dicom_header_anonymizer_low_level.script         # Header anonymization (low-level)
-│   ├── dicom_deface_anonymizer.py          # Facial anonymization
-│   └── dicom_deface_anonymizer.sh          # Facial anonymization environment setup
-```
+
+- `dicom_header_anonymizer_high_level.script`  
+  설명 추가
+
+- `dicom_header_anonymizer_low_level.script`  
+  설명 추가
+
+- `dicom_deface_anonymizer.py`  
+  설명 추가
+
+- `dicom_deface_anonymizer.sh`  
+  설명 추가
 
 ## What this script does
 
