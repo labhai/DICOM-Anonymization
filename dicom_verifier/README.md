@@ -3,13 +3,18 @@ This module provides verification tools to validate the integrity of DICOM anony
 Verification results are exported as Excel reports for downstream review.
 
 ## Directory contains
-```
-├── dicom_verifier
-│   ├── dicom_header_verifier.py            # Header anonymization verifier
-│   ├── dicom_header_verifier.sh            # Header verifier environment setup
-│   ├── dicom_deface_verifier.py             # Facial anonymization verifier
-│   └── dicom_deface_verifier.sh             # Facial verifier environment setup
-```
+- `dicom_header_verifier.py`  
+  설명 추가
+
+- `dicom_header_verifier.sh`  
+  설명 추가
+
+- `dicom_deface_verifier.py`  
+  설명 추가
+
+- `dicom_deface_verifier.sh`  
+  설명 추가
+
 
 ## What this script does
 
