@@ -1,6 +1,27 @@
 # DICOM Anonymization (`dicom_anonymizer`)
 This module provides tools for DICOM data anonymization, covering both header anonymization and facial information defacing.
 
+## DICOM Anonymization Overview
+
+### Header Anonymization Overveiw
+DICOM header anonymization is performed based on established privacy standards, including HIPAA Safe Harbor and DICOM PS3.15 Attribute Confidentiality Profiles.  
+Header fields are classified by re-identification risk, and different anonymization rules are applied depending on the selected anonymization level (low or high).  
+- Target Fields for Header Anonymization
+  The following table summarizes representative header fields targeted for anonymization and how they are handled at each level.
+  (This is a simplified overview; the full policy is defined in the script files.)
+  | Field Category | Example DICOM Tags | Low-level Policy | High-level Policy |
+  | -------------- | ------------------ | ---------------- | ----------------- |
+  | absolute identifiers     | Patient Name, Birth Date, Address | Removed            | Removed              |
+  | Patient identifier       | Patient ID                        | Replaced with hash | Removed              |
+  | UIDs                     | Study / Series / SOP Instance UID | Replaced with hash | Removed              |
+  | Dates & times            | Study Date, Acquisition Date      | Replaced with hash | Removed              |
+  | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
+  | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Generalized (binned) |
+  | Low-risk attributes      | Sex                               | Preserved          | Preserved            |
+
+
+
+
 ## Directory contains
 
 - `dicom_header_anonymizer_high_level.script`  
