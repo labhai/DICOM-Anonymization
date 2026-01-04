@@ -24,7 +24,7 @@ Header fields are classified by re-identification risk, and different anonymizat
       Applying stricter removal or generalization rules to further reduce re-identification risk.  
 
 ### Facial information anonymization overview  
-Facial information anonymization is applied to head- and neck-related DICOM images (e.g., head CT, brain MRI), where facial contours may remain visible in pixel data even after complete header anonymization.  
+Facial information anonymization is applied to head(face)-related DICOM images (e.g., head CT, brain MRI), where facial contours may remain visible in pixel data even after complete header anonymization.  
 To mitigate this risk, pixel-level facial defacing is performed to remove external facial features while preserving internal anatomical structures relevant for research and analysis.  
 - **Target Regions for Facial Anonymization**  
   The anonymization process focuses on removing externally identifiable facial structures, while minimizing impact on clinically relevant regions.  
