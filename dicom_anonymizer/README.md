@@ -3,7 +3,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 
 ## DICOM Anonymization Overview
 
-### Header Anonymization Overveiw
+### Header anonymization overview
 DICOM header anonymization is performed based on established privacy standards, including HIPAA Safe Harbor and DICOM PS3.15 Attribute Confidentiality Profiles.  
 Header fields are classified by re-identification risk, and different anonymization rules are applied depending on the selected anonymization level (low or high).  
 - Target Fields for Header Anonymization
@@ -23,6 +23,25 @@ Header fields are classified by re-identification risk, and different anonymizat
       Prioritizing privacy protection while preserving key metadata needed for analysis and longitudinal linkage.
     - High-level anonymization  
       Applying stricter removal or generalization rules to further reduce re-identification risk.  
+
+### Facial information anonymization overview  
+Facial information anonymization is applied to head- and neck-related DICOM images (e.g., head CT, brain MRI), where facial contours may remain visible in pixel data even after complete header anonymization.  
+To mitigate this risk, pixel-level facial defacing is performed to remove external facial features while preserving internal anatomical structures relevant for research and analysis.  
+- Target Regions for Facial Anonymization
+  The anonymization process focuses on removing externally identifiable facial structures, while minimizing impact on clinically relevant regions.
+| Category | Target Regions | Anonymization Strategy |
+| -------- | -------------- | ---------------------- |
+| Facial surface     | Eyes, nose, mouth, skin surface            | Defaced |
+| Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
+| Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
+- Anonymization Levels  
+    - Low-level anonymization
+      Facial defacing is not applied by default, assuming a controlled internal research environment where header anonymization alone is sufficient. Facial defacing may be optionally applied depending on study requirements.  
+    - High-level anonymization
+      Facial defacing is applied by default for head(face)-related images intended for external sharing or multi-institutional use, where re-identification risk is higher.  
+
+This anonymization policy design allows flexible adjustment of anonymization strength according to the data sharing scope and re-identification risk, while balancing privacy protection and data usability.
+
 
 ## Directory contains
 
@@ -129,4 +148,5 @@ Each subject produces a dedicated output folder:
           ├── slice_002.dcm
           └── ...
   ```
+
 
