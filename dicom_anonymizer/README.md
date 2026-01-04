@@ -4,7 +4,7 @@ This module provides tools for DICOM data anonymization, covering both header an
 ## DICOM Anonymization Overview
 
 ### Header anonymization overview
-DICOM header anonymization is performed based on established privacy standards, including the HIPAA(Health Insurance Portability and Accountability Act) Safe Harbor method and DICOM PS3.15 Attribute Confidentiality Profiles, which define how identifying metadata should be removed, replaced, or generalized to reduce re-identification risk.
+DICOM header anonymization is performed based on established privacy standards, including the HIPAA(Health Insurance Portability and Accountability Act) Safe Harbor method and DICOM PS3.15 Attribute Confidentiality Profiles, which define how identifying metadata should be removed, replaced, or generalized to reduce re-identification risk.  
 Header fields are classified by re-identification risk, and different anonymization rules are applied depending on the selected anonymization level (low or high).  
 - **Target Fields for Header Anonymization**  
   The following table summarizes representative header fields targeted for anonymization and how they are handled at each level.
