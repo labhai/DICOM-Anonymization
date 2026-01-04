@@ -2,7 +2,15 @@
 # DICOM Anonymization
 
 This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
-- DICOM이 뭔지
+
+- **What is DICOM?**
+  DICOM (Digital Imaging and Communications in Medicine) is the universal standard format used for medical images such as X-rays, CT, and MRI.  
+  A DICOM file contains not only the image itself, but also extensive metadata in its header, including:  
+  - Patient information (e.g., name, ID, date of birth, sex)
+  - Examination details (e.g., acquisition date/time)
+  - Medical institution and device information  
+  Because image data and metadata are stored together in a single file, DICOM files are highly informative—but also potentially sensitive.  
+
 - 익명화가 필요한 이유(배경)
 
 ## Repository Structure
