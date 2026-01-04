@@ -5,7 +5,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 
 ## Repository Structure
 
-### Anonymization (`dicom_anonymizer`)
+### `dicom_anonymizer`
 #### 1. Header anonymization (RSNA DICOM Anonymizer)
 
 - Script-based anonymization using RSNA DICOM Anonymizer
@@ -18,7 +18,7 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
 - Automated 3D facial defacing for head-related DICOM images
 - Conda-based environment
 
-### Verification (`dicom_verifier`)
+### `dicom_verifier`
 
 #### 1. Header verification (dicom_header_verifier)
 - Low / High-level criteria support
