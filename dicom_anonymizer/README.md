@@ -147,10 +147,9 @@ Each subject produces a dedicated output folder:
           ├── slice_002.dcm
           └── ...
   ```
-
-
-
-
-**References**
+  
+  
+  
+**References**  
 NEMA. *DICOM Standard PS3.15 — Security and System Management Profiles.* DICOM Standards Committee, https://dicom.nema.org/medical/dicom/current/output/chtml/part15/PS3.15.html. Accessed 2025.
 
