@@ -2,6 +2,8 @@
 # DICOM Anonymization
 
 This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
+- DICOM이 뭔지
+- 익명화가 필요한 이유(배경)
 
 ## Repository Structure
 
