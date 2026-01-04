@@ -9,7 +9,7 @@ Header fields are classified by re-identification risk, and different anonymizat
 - Target Fields for Header Anonymization
   The following table summarizes representative header fields targeted for anonymization and how they are handled at each level.
   (This is a simplified overview; the full policy is defined in the script files.)
-  | Field Category | Example DICOM Tags | Low-level Policy | High-level Policy |
+  | Field Category | DICOM Tags (examples) | Low-level Policy | High-level Policy |
   | -------------- | ------------------ | ---------------- | ----------------- |
   | absolute identifiers     | Patient Name, Birth Date, Address | Removed            | Removed              |
   | Patient identifier       | Patient ID                        | Replaced with hash | Removed              |
