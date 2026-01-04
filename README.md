@@ -8,7 +8,8 @@ This repository provides a comprehensive DICOM anonymization and validation pipe
   A DICOM file contains not only the image itself, but also extensive metadata in its header, including:  
   - Patient information (e.g., name, ID, date of birth, sex)
   - Examination details (e.g., acquisition date/time)
-  - Medical institution and device information  
+  - Medical institution and device information
+  
   Because image data and metadata are stored together in a single file, DICOM files are highly informative—but also potentially sensitive.  
 
 - 익명화가 필요한 이유(배경)
