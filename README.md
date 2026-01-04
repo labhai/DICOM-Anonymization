@@ -3,15 +3,14 @@
 
 This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
 
-### What is DICOM?
-  DICOM (Digital Imaging and Communications in Medicine) is the universal standard format used for medical images such as X-rays, CT, and MRI. A DICOM file contains not only the image itself, but also extensive metadata in its header, including:  
-  - Patient information (e.g., name, ID, date of birth, sex)
-  - Examination details (e.g., acquisition date/time)
-  - Medical institution and device information
-  
-  Because image data and metadata are stored together in a single file, DICOM files are highly informative—but also potentially sensitive.  
+### What is DICOM?  
+DICOM (Digital Imaging and Communications in Medicine) is the universal standard format used for medical images such as X-rays, CT, and MRI. A DICOM file contains not only the image itself but also extensive metadata in its header, including patient information (e.g., name, ID, date of birth, sex), examination details (e.g., acquisition date and time), as well as medical institution and imaging device information. Because image data and metadata are stored together in a single file, DICOM files are highly informative—but also potentially sensitive.
 
-- 익명화가 필요한 이유(배경)
+### Why Anonymization Is Necessary
+- Header Anonymization
+  DICOM headers contain patient identifiers and quasi-identifiers such as names, IDs, dates, and institution information. If left anonymized, these fields can enable re-identification, especially when data are shared across institutions or combined with external records. Therefore, anonymizing DICOM header metadata is essential before any data sharing or secondary use.
+- Facial Information Defacing
+  Head CT and brain MRI images may include facial structures that can reveal a person’s identity, even when all header information has been removed. With advances in 3D reconstruction and facial recognition, such images pose a growing privacy risk. As a result, pixel-level facial defacing is required to ensure robust protection of patient privacy.
 
 ## Repository Structure
 
