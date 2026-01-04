@@ -4,16 +4,16 @@ Verification results are exported as Excel reports for downstream review.
 
 ## Directory contains
 - `dicom_header_verifier.py`  
-  설명 추가
+  Verifies DICOM header anonymization against low- or high-level policies and generates an Excel report.
 
 - `dicom_header_verifier.sh`  
-  설명 추가
+  Sets up the Python environment required for header anonymization verification.
 
 - `dicom_deface_verifier.py`  
-  설명 추가
+  Verifies facial defacing quality by comparing raw and defaced DICOM data using nnUNet-based metrics.
 
 - `dicom_deface_verifier.sh`  
-  설명 추가
+  Creates a Conda environment and installs dependencies for facial defacing verification.
 
 
 ## What this script does
