@@ -10,7 +10,7 @@ Verification results are exported as Excel reports for downstream review.
   Sets up the Python environment required for header anonymization verification.
 
 - `dicom_deface_verifier.py`  
-  Verifies facial defacing quality by comparing raw and defaced DICOM data using nnUNet-based metrics and generates an Excel verification report.
+  Verifies facial defacing quality by comparing raw and defaced DICOM data using nnUNet and generates an Excel verification report.
 
 
 - `dicom_deface_verifier.sh`  
