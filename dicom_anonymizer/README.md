@@ -20,7 +20,7 @@ Header fields are classified by re-identification risk, and different anonymizat
   - Anonymization Processing Methods
     - The following terms describe how individual DICOM fields are handled during anonymization:
       | Processing Method | Description |
-      | --------------- | --------------- |
+      | ------------------ | --------------- |
       | Removed | The original value is completely deleted and replaced with an empty, ensuring that no identifying information remains in the field.|
       | Preserved | The original value is kept unchanged because it is considered low risk and necessary for clinical or research use.|
       | Replaced with hash | The original value is transformed using a hash function. The same input always maps to the same hashed value, enabling longitudinal linkage without revealing the original identifier. |
