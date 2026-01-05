@@ -23,7 +23,7 @@ A DICOM file contains not only the image itself but also extensive metadata in i
 - Two anonymization levels:
   - Low-level: dicom_header_anonymizer_low_level.script
   - High-level: dicom_header_anonymizer_high_level.script
-- GUI-based workflow (Windows)
+- GUI-based workflow (Windows only)
 
 #### 2. Facial information anonymization (dicom_deface_anonymizer)
 - Automated 3D facial defacing for head-related DICOM images
