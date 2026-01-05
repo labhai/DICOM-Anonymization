@@ -159,7 +159,7 @@
  <e en="T" t="00082120" n="StageName">@remove()</e>
  <e en="T" t="00082122" n="StageNumber">@remove()</e>
  <e en="T" t="00082124" n="NumberOfStages">@remove()</e>
- <e en="T" t="00082127" n="ViewName">@remove()</e>
+ <e en="T" t="00082127" n="ViewName"></e>
  <e en="T" t="00082128" n="ViewNumber">@remove()</e>
  <e en="T" t="00082129" n="NumberOfEventTimers">@remove()</e>
  <e en="T" t="0008212A" n="NumberOfViewsInStage">@remove()</e>
@@ -292,12 +292,12 @@
  <e en="T" t="00104000" n="PatientComments">@remove()</e>
  <e en="T" t="00109431" n="ExaminedBodyThickness">@remove()</e>
  <e en="T" t="00120010" n="ClinicalTrialSponsorName">@empty()</e>
- <e en="T" t="00120020" n="ClinicalTrialProtocolID">@empty()</e>
+ <e en="T" t="00120020" n="ClinicalTrialProtocolID">@uid</e>
  <e en="T" t="00120021" n="ClinicalTrialProtocolName">@empty()</e>
- <e en="T" t="00120030" n="ClinicalTrialSiteID">@empty()</e>
+ <e en="T" t="00120030" n="ClinicalTrialSiteID">@uid</e>
  <e en="T" t="00120031" n="ClinicalTrialSiteName">@empty()</e>
- <e en="T" t="00120040" n="ClinicalTrialSubjectID">@empty()</e>
- <e en="T" t="00120042" n="ClinicalTrialSubjectReadingID">@empty()</e>
+ <e en="T" t="00120040" n="ClinicalTrialSubjectID">@uid</e>
+ <e en="T" t="00120042" n="ClinicalTrialSubjectReadingID">@uid</e>
  <e en="T" t="00120050" n="ClinicalTrialTimePointID">@empty()</e>
  <e en="T" t="00120051" n="ClinicalTrialTimePointDescription">@remove()</e>
  <e en="T" t="00120052" n="LongitudinalTemporalOffsetFromEvent"></e>
@@ -612,7 +612,7 @@
  <e en="T" t="0016008C" n="GPSAreaInformation">@remove()</e>
  <e en="T" t="0016008D" n="GPSDateStamp">@remove()</e>
  <e en="T" t="0016008E" n="GPSDifferential">@remove()</e>
- <e en="T" t="00180010" n="ContrastBolusAgent"></e>
+ <e en="T" t="00180010" n="ContrastBolusAgent">@remove()</e>
  <e en="T" t="00180012" n="ContrastBolusAgentSeq"></e>
  <e en="T" t="00180013" n="ContrastBolusT1Relaxivity"></e>
  <e en="T" t="00180014" n="ContrastBolusAdministrationRouteSeq"></e>
@@ -883,7 +883,7 @@
  <e en="T" t="00183102" n="IVUSGatedRate"></e>
  <e en="T" t="00183103" n="VUSPullbackStartFrameNumber"></e>
  <e en="T" t="00183104" n="IVUSPullbackStopFrameNumber"></e>
- <e en="T" t="00183105" n="LesionNumber"></e>
+ <e en="T" t="00183105" n="LesionNumber">@remove()</e>
  <e en="T" t="00184000" n="SeriesCommentsRetired">@remove()</e>
  <e en="T" t="00185000" n="OutputPower"></e>
  <e en="T" t="00185010" n="TransducerData"></e>
@@ -2103,8 +2103,8 @@
  <e en="T" t="00320033" n="StudyVerifiedTime">@remove()</e>
  <e en="T" t="00320034" n="StudyReadDate">@remove()</e>
  <e en="T" t="00320035" n="StudyReadTime">@remove()</e>
- <e en="T" t="00321000" n="ScheduledStudyStartDate">@remove()</e>
- <e en="T" t="00321001" n="ScheduledStudyStartTime">@remove()</e>
+ <e en="T" t="00321000" n="ScheduledStudyStartDate">@hashdate</e>
+ <e en="T" t="00321001" n="ScheduledStudyStartTime">@hashdate</e>
  <e en="T" t="00321010" n="ScheduledStudyStopDate">@remove()</e>
  <e en="T" t="00321011" n="ScheduledStudyStopTime">@remove()</e>
  <e en="T" t="00321020" n="ScheduledStudyLocation">@remove()</e>
@@ -2148,7 +2148,7 @@
  <e en="T" t="0038001C" n="ScheduledDischargeDate">@remove()</e>
  <e en="T" t="0038001D" n="ScheduledDischargeTime">@remove()</e>
  <e en="T" t="0038001E" n="ScheduledPatientInstitutionResidence">@remove()</e>
- <e en="T" t="00380020" n="AdmittingDate">@remove()</e>
+ <e en="T" t="00380020" n="AdmittingDate">@hashdate</e>
  <e en="T" t="00380021" n="AdmittingTime">@remove()</e>
  <e en="T" t="00380030" n="DischargeDate">@remove()</e>
  <e en="T" t="00380032" n="DischargeTime">@remove()</e>
@@ -2333,8 +2333,8 @@
  <e en="T" t="00402009" n="OrderEntererLocation">@remove()</e>
  <e en="T" t="00402010" n="OrderCallbackPhoneNumber">@remove()</e>
  <e en="T" t="00402011" n="OrderCallbackTelecomInformation">@remove()</e>
- <e en="T" t="00402016" n="PlacerOrderNumber">@remove()</e>
- <e en="T" t="00402017" n="FillerOrderNumber">@remove()</e>
+ <e en="T" t="00402016" n="PlacerOrderNumber">@@uid()</e>
+ <e en="T" t="00402017" n="FillerOrderNumber">@@uid()</e>
  <e en="T" t="00402400" n="ImagingServiceRequestComments">@remove()</e>
  <e en="T" t="00403001" n="ConfidentialityPatientData">@remove()</e>
  <e en="T" t="00404001" n="GPSPSStatus">@remove()</e>
