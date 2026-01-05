@@ -35,9 +35,10 @@ To mitigate this risk, pixel-level facial defacing is performed to remove extern
   | Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
 - **Anonymization Levels**  
     - Low-level anonymization  
-      Facial defacing is not applied by default, assuming a controlled internal research environment where header anonymization alone is sufficient. Facial defacing may be optionally applied depending on study requirements.  
+      Facial defacing is not applied at this level. This setting assumes a controlled internal research environment (e.g., within a single institution with restricted access), where DICOM header anonymization alone is sufficient to mitigate re-identification risk.  
+      Omitting facial defacing at the low-level anonymization stage preserves anatomically surface information, thereby minimizing potential research loss in studies such as craniofacial morphology analysis or surface-based morphometry. For this reason, facial defacing is intentionally excluded from the default low-level policy and is applied only when explicitly required by the selected anonymization workflow.  
     - High-level anonymization  
-      Facial defacing is applied by default for head(face)-related images intended for external sharing or multi-institutional use, where re-identification risk is higher.  
+      Facial defacing is applied for head(face)-related images intended for external sharing or multi-institutional use, where re-identification risk is higher.  
 
 This anonymization policy design allows flexible adjustment of anonymization strength according to the data sharing scope and re-identification risk, while balancing privacy protection and data usability.
 
