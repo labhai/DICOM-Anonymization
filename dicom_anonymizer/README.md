@@ -16,7 +16,17 @@ Header fields are classified by re-identification risk, and different anonymizat
   | Dates & times            | Study Date, Acquisition Date      | Replaced with hash | Removed              |
   | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
   | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Rounded to 5-unit intervals |
-  | Low-risk attributes      | Sex                               | Preserved          | Preserved            |
+  | Low-risk attributes      | Sex                               | Preserved          | Preserved            |  
+  - Anonymization Processing Methods
+    - The following terms describe how individual DICOM fields are handled during anonymization:
+      | Processing Method | Description |
+      | --------------- | --------------- |
+      | Removed | The original value is completely deleted and replaced with an empty, ensuring that no identifying information remains in the field.|
+      | Preserved | The original value is kept unchanged because it is considered low risk and necessary for clinical or research use.|
+      | Replaced with hash | The original value is transformed using a hash function. The same input always maps to the same hashed value, enabling longitudinal linkage without revealing the original identifier. |
+      | Rounded to 5-unit intervals | Continuous numeric values (e.g., age, weight) are rounded into 5-unit bins (e.g., age 43 → 45), reducing identifiability while retaining approximate information. |
+
+
 - **Anonymization Levels**  
     - Low-level anonymization  
       Prioritizing privacy protection while preserving key metadata needed for analysis and longitudinal linkage.
