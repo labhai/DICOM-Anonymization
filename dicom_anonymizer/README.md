@@ -47,7 +47,7 @@ To mitigate this risk, pixel-level facial defacing is performed to remove extern
       | Processing Method | Description |
       | ------------------ | --------------- |
       | Defaced | Externally identifiable facial regions are removed at the pixel level to prevent visual re-identification. |
-      | Preserved | TInternal anatomical structures relevant to diagnosis and research (e.g., brain, skull base) are left intact without modification. |
+      | Preserved | Internal anatomical structures relevant to diagnosis and research (e.g., brain, skull base) are left intact without modification. |
 
 - **Anonymization Levels**  
     - Low-level anonymization  
