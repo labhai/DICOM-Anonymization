@@ -24,8 +24,7 @@ Header fields are classified by re-identification risk, and different anonymizat
       | Removed | The original value is completely deleted and replaced with an empty, ensuring that no identifying information remains in the field.|
       | Preserved | The original value is kept unchanged because it is considered low risk and necessary for clinical or research use.|
       | Replaced with hash | The original value is transformed using a hash function. The same input always maps to the same hashed value, enabling longitudinal linkage without revealing the original identifier. |
-      | Rounded to 5-unit intervals | Continuous numeric values (e.g., age, weight) are rounded into 5-unit bins (e.g., age 43 → 45), reducing identifiability while retaining approximate information. |
-
+      | Rounded to 5-unit intervals | Continuous numeric values (e.g., age, weight) are rounded into 5-unit bins (e.g., age 43 → 45), reducing identifiability while retaining approximate information. |  
 
 - **Anonymization Levels**  
     - Low-level anonymization  
@@ -43,6 +42,13 @@ To mitigate this risk, pixel-level facial defacing is performed to remove extern
   | Facial surface     | Eyes, nose, mouth, skin surface            | Defaced |
   | Facial soft tissue | Cheeks, lips, periorbital region           | Defaced |
   | Internal anatomy   | Brain, skull base, intracranial structures | Preserved |
+  - Anonymization Processing Methods
+    - The following terms describe how individual DICOM image regions are handled during anonymization:
+      | Processing Method | Description |
+      | ------------------ | --------------- |
+      | Defaced | Externally identifiable facial regions are removed at the pixel level to prevent visual re-identification. |
+      | Preserved | TInternal anatomical structures relevant to diagnosis and research (e.g., brain, skull base) are left intact without modification. |
+
 - **Anonymization Levels**  
     - Low-level anonymization  
       Facial defacing is not applied at this level. This setting assumes a controlled internal research environment (e.g., within a single institution with restricted access), where DICOM header anonymization alone is sufficient to mitigate re-identification risk.  
