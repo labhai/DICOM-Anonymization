@@ -1,7 +1,7 @@
 
 # DICOM Anonymization
 
-This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity.
+This repository provides a comprehensive DICOM anonymization and validation pipeline covering both DICOM header anonymization and facial information defacing, along with verification tools to ensure anonymization integrity. It is designed for researchers, hospitals, and organizations that need to safely share medical imaging data while complying with privacy regulations.
 
 ### What is DICOM?  
 **DICOM (Digital Imaging and Communications in Medicine)** is the universal standard format used for medical images such as X-rays, CT, and MRI.  
@@ -24,9 +24,11 @@ A DICOM file contains not only the image itself but also extensive metadata in i
   - Low-level: dicom_header_anonymizer_low_level.script
   - High-level: dicom_header_anonymizer_high_level.script
 - GUI-based workflow (Windows only)
+- Applicable to all DICOM modalities and imaging domains (e.g., CT, X-ray, MRI, brain, chest), with users selecting the appropriate anonymization script based on their use case.
 
 #### 2. Facial information anonymization (dicom_deface_anonymizer)
-- Automated 3D facial defacing for head-related DICOM images
+- Automated 3D facial defacing for head-related DICOM images (e.g., head CT, brain MRI)
+  - Not applied to non-head domains such as chest or abdominal imaging
 - Conda-based environment
 
 ### `dicom_verifier`
