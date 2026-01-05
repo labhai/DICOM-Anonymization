@@ -8,14 +8,14 @@ DICOM header anonymization is performed based on established privacy standards, 
 Header fields are classified by re-identification risk, and different anonymization rules are applied depending on the selected anonymization level (low or high).  
 - **Target Fields for Header Anonymization**  
   The following table summarizes representative header fields targeted for anonymization and how they are handled at each level.
-  (This is a simplified overview; the full policy is defined in the script files.)  
+  (This is a simplified overview; the complete anonymization policy, including tag-level handling rules for both low- and high-level anonymization, is documented in dicom_header_anonymization_policy.xlsx.)
   | Field Category | DICOM Tags (examples) | Low-level Policy | High-level Policy |
   | -------------- | ------------------ | ---------------- | ----------------- |
   | absolute identifiers     | Patient Name, Birth Date, Address | Removed            | Removed              |
   | Patient identifier       | Patient ID                        | Replaced with hash | Removed              |
   | Dates & times            | Study Date, Acquisition Date      | Replaced with hash | Removed              |
   | Institution & staff info | Institution Name, Physician Name  | Removed            | Removed              |
-  | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Generalized (binned) |
+  | Quasi-identifiers        | Age, Weight, Body Part Thickness  | Preserved          | Rounded to 5-unit intervals |
   | Low-risk attributes      | Sex                               | Preserved          | Preserved            |
 - **Anonymization Levels**  
     - Low-level anonymization  
